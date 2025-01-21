@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>Kalderone</translationContributors>
+    <texts>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="Ємність"/>
+        <text name="infoDisplayExtension_USED_CAPACITY" text="Використовується"/>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY" text="Загальна"/>
+        <text name="infoDisplayExtension_MORE_ITEMS" text="ще"/>
+        <text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="Підключено до"/>
+        <text name="Revamp_Store" text="Зберігання"/>
+        <text name="Revamp_Spawn" text="Створення"/>
+        <text name="infohud_diameter" text="Діаметр"/>
+        <text name="infohud_growthState" text="Стадія росту"/>
+        <text name="infohud_ageInHours" text="Час росту"/>
+        <text name="infohud_fullGrown" text="Повністю виріс"/>
+        <text name="infohud_missing" text="відсутній"/>
+        <text name="infohud_remaingTime" text="Час, що залишився"/>
+        <text name="infoDisplayExtension_currentPower" text="Потужність"/>
+        <text name="infohud_Input" text="Прийнято"/>
+        <text name="infohud_both" text="Прийнято і вироблено"/>
+        <text name="infohud_Output" text="Вироблено"/>
+        <!-- Animal Texts -->
+        <text name="infoDisplayExtension_animals_health" text="Здоров'я"/>
+        <text name="infoDisplayExtension_animals_healthRange" text="Здоров'я"/>
+        <text name="infoDisplayExtension_animals_duration" text="Тривалість вагітності"/>
+        <text name="infoDisplayExtension_animals_durationRange" text="Тривалість вагітності"/>
+        <text name="infoDisplayExtension_animals_reproduction" text="Стадії вагітності"/>
+        <text name="infoDisplayExtension_animals_reproductionRange" text="Стадії вагітності"/>
+        <text name="infoDisplayExtension_animals_beforeReproduction" text="Статева зрілість"/>
+        <text name="infoDisplayExtension_animals_beforeReproductionRange" text="Статева зрілість"/>
+        <text name="infoDisplayExtension_animals_nextBirthIn" text="Потомство через"/>
+        <text name="infoDisplayExtension_animals_dirt" text="Чистота"/>
+        <text name="infoDisplayExtension_animals_dirtRange" text="Чистота"/>
+        <text name="infoDisplayExtension_animals_riding" text="Щоденна прогулянка"/>
+        <text name="infoDisplayExtension_animals_ridingRange" text="Щоденна прогулянка"/>
+        <text name="infoDisplayExtension_animals_fitness" text="Фізичний стан"/>
+        <text name="infoDisplayExtension_animals_fitnessRange" text="Фізичний стан"/>
+        <text name="infoDisplayExtension_grazingFoodBuffer" text="Трава на пасовищі"/>
+        <text name="infoDisplayExtension_category" text="Категорія"/>	
+    </texts>
+</l10n>

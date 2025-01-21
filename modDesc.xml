@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="94">
     <author>Achimobil</author>
-    <version>1.0.1.19</version>
+    <version>1.0.1.20</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -47,6 +47,7 @@ Changelog
 
 1.0.1.18 - Fix für Missionen mit Krautschlägern
 1.0.1.19 - IT Übersetzungen von Roby1164
+1.0.1.20 - UK Übersetzungen von Kalderone
 
 1.0.1.0
 - Lua Fehler in Berechnungen für selbstgepflanzte Bäume korrigiert
