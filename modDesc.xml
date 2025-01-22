@@ -48,7 +48,7 @@ Changelog
 1.0.1.18 - Fix für Missionen mit Krautschlägern
 1.0.1.19 - IT Übersetzungen von Roby1164
 1.0.1.20 - UK Übersetzungen von Kalderone
-1.0.1.21 - Fix lua error when powered vehicle has illigal no store item
+1.0.1.21 - Fix lua error when powered vehicle has illigal no store category
 
 1.0.1.0
 - Lua Fehler in Berechnungen für selbstgepflanzte Bäume korrigiert
