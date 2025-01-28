@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="94">
     <author>Achimobil</author>
-    <version>1.0.1.20</version>
+    <version>1.1.0.1</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -19,6 +19,8 @@ Erweitert die Info Hud Anzeigen von
 - Misthaufen
 - Bäumen
 - Fahrzeuge und Anbaugeräte
+- Feldwachstum
+- Fabriken und Eventgebäude
 - Fügt, wo möglich, die Einheiten der Zahlen hinzu, da nicht alles in Litern ist.
 
 Upload auf anderen Seiten außer dem ModHub ist verboten und somit illegal, Verlinkung nur mit Original-Downloadlink. KEIN Ersatzlink!
@@ -27,34 +29,27 @@ Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestat
 Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
-1.0.1.1 - Verbesserungen DE übersetzungen
-1.0.1.2 - Wachstumsphase und max Wachtum anzeigen
-1.0.1.3 - Übersetzungen in pt von Inoque71 hinzugefügt
-1.0.1.4 - Lua fehler bei Bäumen letzte Wachstumsphase behoben
-1.0.1.5 - typo fixed
-1.0.1.6 - Fahrzeuge zeigen jetzt Shop Kategorie an
-1.0.1.7 - Fahrzeuge zeigen jetzt aktuelles Gewicht an
-1.0.1.8 - Chinesische übersetzungen von mowenxuan
-1.0.1.9 - Chinesische übersetzungen angepasst
-1.0.1.10 - pt übersetzung verbessert
-1.0.1.11 - pl übersetzung verbessert
-1.0.1.12 - Fabriken max und Fortschrittsanzeige hinzugefügt
-1.0.1.13 - StateMachine Anzeigen erweitert
-1.0.1.14 - Erhöhung der im F1 Menü angezeigten Standard Einträge von 6 auf 12
-1.0.1.15 - Misthaufen nicht verbunden nach Spiel laden behoben
-1.0.1.16 - Mehr Elemente im F1 Menü abhängig von der UI scale gemacht
-1.0.1.17 - Misthaufen fix mür MP anzeige
-
 1.0.1.18 - Fix für Missionen mit Krautschlägern
 1.0.1.19 - IT Übersetzungen von Roby1164
 1.0.1.20 - UK Übersetzungen von Kalderone
 1.0.1.21 - Fix lua error when powered vehicle has illigal no store category
 
+1.1.0.0
+- Verbesserte Übersetzungen für DE und PL und neue Übersetzungen in PT und CS
+- Wachstumsphase und maximales Wachstum anzeigen
+- Lua Fehler bei Bäumen in der letzten Wachstumsphase behoben
+- Fahrzeuge zeigen jetzt Shop Kategorie und aktuelles Gewicht an
+- Fabriken max. und Fortschrittsanzeige hinzugefügt
+- Eventgebäude Anzeigen erweitert
+- Erhöhung der im F1 Menü angezeigten Standardeinträge (Danke an HoFFi)
+- Misthaufen nicht verbunden nach Spiel laden Fehler behoben (Behebt Basegame Fehler, bis es in einem Patch behoben ist)
+
 1.0.1.0
 - Lua Fehler in Berechnungen für selbstgepflanzte Bäume korrigiert
 - Altersberechnung für Bäume korrigiert
-- Übersetzungeskorrekturen eingefügt
+- Übersetzungskorrekturen eingefügt
 - Türkische Übersetzungen hinzugefügt
+
 ]]></de>
         <en><![CDATA[A small mod to extend the displays.
 
@@ -62,9 +57,11 @@ Extends the Info Hud displays of
 - silos
 - Productions
 - animal sheeds
-- dung heaps
+- Manure heaps
 - trees
 - Vehicles and attachments
+- Field growth
+- Factories and event buildings
 - Adds units of numbers where possible as not everything is in litres.
 
 Uploading to sites other than ModHub is prohibited and therefore illegal, linking only with original download link. NO substitute link!
@@ -73,6 +70,16 @@ Modifying and re-uploading in whole or in part is not allowed!
 Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+1.1.0.0
+- Improved translations for DE and PL and new translations in PT and CS
+- Show growth phase and maximum growth
+- Lua bug fixed for trees in the last growth phase
+- Vehicles now show shop category and current weight
+- Added factories max. and progress indicator
+- Event building displays extended
+- Increased the standard entries displayed in the F1 menu (thanks to HoFFi)
+- Manure heap not connected after game load bug fixed (Fixes basegame bug until it is fixed in a patch)
+
 1.0.1.0
 - Lua error in calculations for self-planted trees corrected
 - Corrected age calculation for trees
