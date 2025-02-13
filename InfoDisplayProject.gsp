@@ -3,6 +3,7 @@
     <projectName>InfoDisplayProject</projectName>
     <projectSources>
         <source path="D:/Achim/source/repos/FS25_InfoDisplayExtension/" />
+        <source path="E:/Modding/Giants/GiantsStudioOwnReferences/" />
     </projectSources>
     <excludePaths></excludePaths>
     <gameUserProfileAppDirectory>%gameuserprofile%/FarmingSimulator2025/</gameUserProfileAppDirectory>

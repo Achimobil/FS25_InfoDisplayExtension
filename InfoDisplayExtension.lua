@@ -71,11 +71,14 @@ function InfoDisplayExtension:formatCapacity(liters, capacity, precision, unit)
     return self:formatVolume(liters, precision, false) .. " / " .. self:formatVolume(capacity, precision, unit);
 end
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableSilo(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
-    local spec = self.spec_silo
-    local farmId = g_currentMission:getFarmId()
+    local spec = self.spec_silo;
+    local farmId = g_currentMission:getFarmId();
     local totalFillLevel = 0;
 
     -- collect capacities
@@ -181,6 +184,9 @@ function InfoDisplayExtension:updateInfoPlaceableSilo(_, superFunc, infoTable)
 end
 PlaceableSilo.updateInfo = Utils.overwrittenFunction(PlaceableSilo.updateInfo, InfoDisplayExtension.updateInfoPlaceableSilo)
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
     local owningFarm = g_farmManager:getFarmById(self:getOwnerFarmId())
 
@@ -393,6 +399,9 @@ function compProductionPoints(w1,w2)
     return w1:getName() .. w1.id < w2:getName() .. w2.id;
 end
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableHusbandryAnimals(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -644,6 +653,9 @@ function PlaceableHusbandryAnimals.setMoreInfos(clusters, isHorse)
     return moreInfos;
 end;
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableHusbandryFood(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -675,6 +687,9 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryFood(_, superFunc, inf
 end
 PlaceableHusbandryFood.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryFood.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryFood)
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableHusbandryMilk(_, superFunc, infoTable)
     local spec = self.spec_husbandryMilk;
 
@@ -694,6 +709,9 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryMilk(_, superFunc, inf
 end
 PlaceableHusbandryMilk.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryMilk.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryMilk)
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableHusbandryLiquidManure(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -706,6 +724,9 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryLiquidManure(_, superF
 end
 PlaceableHusbandryLiquidManure.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryLiquidManure.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryLiquidManure)
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableHusbandryStraw(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -715,9 +736,23 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryStraw(_, superFunc, in
     spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(spec.inputFillType));
 
     table.insert(infoTable, spec.info)
+
+    local fillLevelOutput = self:getHusbandryFillLevel(spec.outputFillType);
+    local capacityOutput = self:getHusbandryCapacity(spec.outputFillType);
+    if capacityOutput ~= 0 then
+        table.insert(infoTable,
+            {
+                title = g_fillTypeManager:getFillTypeTitleByIndex(spec.outputFillType),
+                text = InfoDisplayExtension:formatCapacity(fillLevelOutput, capacityOutput, 0, nil);
+            }
+        )
+    end
 end
 PlaceableHusbandryStraw.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryStraw.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryStraw)
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableHusbandryWater(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -733,6 +768,9 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryWater(_, superFunc, in
 end
 PlaceableHusbandryWater.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryWater.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryWater)
 
+---Update the info table
+-- @param function superFunc
+-- @param table infoTable
 function InfoDisplayExtension:updateInfoPlaceableManureHeap(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -769,11 +807,11 @@ function InfoDisplayExtension:updateInfoFeedingRobot(_, infoTable)
         for _, info in ipairs(self.infos) do
             local fillLevel = 0
             local capacity = 0
-      local fillTypeName = "UNKNOWN"
+            local fillTypeName = "UNKNOWN"
 
-      for _, fillType in ipairs(info.fillTypes) do
-        fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
-      end
+            for _, fillType in ipairs(info.fillTypes) do
+                fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
+            end
 
             -- nur den ersten filltype abfragen, da die anderen da schon drin sind
             fillLevel = self:getFillLevel(info.fillTypes[1]);

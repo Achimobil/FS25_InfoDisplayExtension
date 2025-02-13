@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="94">
+<modDesc descVersion="95">
     <author>Achimobil</author>
-    <version>1.1.0.1</version>
+    <version>1.1.0.2</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -33,6 +33,7 @@ Changelog
 1.0.1.19 - IT Übersetzungen von Roby1164
 1.0.1.20 - UK Übersetzungen von Kalderone
 1.0.1.21 - Fix lua error when powered vehicle has illigal no store category
+1.1.0.2 - Integrierter und externer Mistspeicher von Kuhställen wird jetzt auch angezeigt #42
 
 1.1.0.0
 - Verbesserte Übersetzungen für DE und PL und neue Übersetzungen in PT und CS
