@@ -995,11 +995,15 @@ function InfoDisplayExtension:showInfoVehicle(box)
         self.ideHasPower = 0;
 
         if powerConfig ~= nil then
+--             InfoDisplayExtension.DebugTable("self.configurations", self.configurations);
             for configName, config in pairs(self.configurations) do
-                local configPower = powerConfig[configName][config];
+--                 InfoDisplayExtension.DebugTable("powerConfig", powerConfig);
+                if powerConfig[configName] ~= nil then
+                    local configPower = powerConfig[configName][config];
 
-                if configPower ~= nil then
-                    self.ideHasPower = configPower;
+                    if configPower ~= nil then
+                        self.ideHasPower = configPower;
+                    end
                 end
             end
         end
