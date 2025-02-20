@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="95">
     <author>Achimobil</author>
-    <version>1.1.0.3</version>
+    <version>1.1.0.4</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -29,12 +29,13 @@ Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestat
 Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
-1.0.1.18 - Fix für Missionen mit Krautschlägern
-1.0.1.19 - IT Übersetzungen von Roby1164
-1.0.1.20 - UK Übersetzungen von Kalderone
-1.0.1.21 - Fix lua error when powered vehicle has illigal no store category
-1.1.0.2 - Integrierter und externer Mistspeicher von Kuhställen wird jetzt auch angezeigt #42
-1.1.0.3 - Fix für Patch 1.6 Fehler
+
+1.1.2.0
+- Fix für Patch 1.6 Fehler lua fehler
+- Missionen mit Krautschlägern werden nun erzeugt
+- Übersetzungen für IT und UK hinzigefügt
+- Lua Error gefixed bei Fahrzeugen die keine Shop Kategorie haben
+- Integrierter und externer Mistspeicher von Kuhställen wird jetzt auch angezeigt
 
 1.1.0.0
 - Verbesserte Übersetzungen für DE und PL und neue Übersetzungen in PT und CS
@@ -72,6 +73,14 @@ Modifying and re-uploading in whole or in part is not allowed!
 Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+
+1.1.2.0
+- Fix for patch 1.6 error lua error
+- Missions with weed whackers are now generated
+- Added translations for IT and UK
+- Lua error fixed for vehicles that do not have a shop category
+- Integrated and external manure storage of cowsheds is now also displayed
+
 1.1.0.0
 - Improved translations for DE and PL and new translations in PT and CS
 - Show growth phase and maximum growth
