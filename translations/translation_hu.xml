@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>MathiasHun</translationContributors>
+    <texts>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="Kapacitás infó"/>
+        <text name="infoDisplayExtension_USED_CAPACITY" text="Felhasznált kapacitás"/>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY" text="Teljes kapacitás"/>
+        <text name="infoDisplayExtension_MORE_ITEMS" text="több"/>
+        <text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="Csatlakoztatva"/>
+        <text name="Revamp_Store" text="Bolt"/>
+        <text name="Revamp_Spawn" text="Megjelenítés"/>
+        <text name="infohud_diameter" text="Átmérő"/>
+        <text name="infohud_growthState" text="Növekedési szakasz"/>
+        <text name="infohud_ageInHours" text="Kor"/>
+        <text name="infohud_fullGrown" text="Teljesen kifejlett"/>
+        <text name="infohud_missing" text="hiányzó"/>
+        <text name="infohud_remaingTime" text="Hátralévő idő"/>
+        <text name="infoDisplayExtension_currentPower" text="Teljesítmény"/>
+        <text name="infohud_Input" text="Bemenet"/>
+        <text name="infohud_both" text="Bemenet és kimenet"/>
+        <text name="infohud_Output" text="Kimenet"/>
+        <!-- Állatokkal kapcsolatos szövegek -->
+        <text name="infoDisplayExtension_animals_health" text="Egészség"/>
+        <text name="infoDisplayExtension_animals_healthRange" text="Egészségi állapot"/>
+        <text name="infoDisplayExtension_animals_duration" text="Szaporodási idő"/>
+        <text name="infoDisplayExtension_animals_durationRange" text="Szaporodási időtartam"/>
+        <text name="infoDisplayExtension_animals_reproduction" text="Szaporodási ráta"/>
+        <text name="infoDisplayExtension_animals_reproductionRange" text="Szaporodási ráta (tartomány)"/>
+        <text name="infoDisplayExtension_animals_beforeReproduction" text="Ivarérettség"/>
+        <text name="infoDisplayExtension_animals_beforeReproductionRange" text="Ivarérettségi tartomány"/>
+        <text name="infoDisplayExtension_animals_nextBirthIn" text="Utód érkezik"/>
+        <text name="infoDisplayExtension_animals_dirt" text="Tisztaság"/>
+        <text name="infoDisplayExtension_animals_dirtRange" text="Tisztasági állapot"/>
+        <text name="infoDisplayExtension_animals_riding" text="Lovaglás"/>
+        <text name="infoDisplayExtension_animals_ridingRange" text="Lovaglási állapot"/>
+        <text name="infoDisplayExtension_animals_fitness" text="Fittség"/>
+        <text name="infoDisplayExtension_animals_fitnessRange" text="Fittség állapot"/>
+        <text name="infoDisplayExtension_grazingFoodBuffer" text="Legeltetési puffer"/>
+        <text name="infoDisplayExtension_category" text="Kategória"/>
+    </texts>
+</l10n>
