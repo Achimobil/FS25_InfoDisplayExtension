@@ -14,7 +14,7 @@ Das verändern und wiederöffentlichen, auch in Teilen, ist untersagt und wird a
 ]]
 
 InfoDisplayExtension = {}
-InfoDisplayExtension.Debug = true;
+InfoDisplayExtension.Debug = false;
 
 InfoDisplayExtension.metadata = {
     title = "InfoDisplayExtension",
@@ -901,8 +901,8 @@ Weitere informationen zu Bäumen anzeigen.]]
 
         if foundTree ~= nil then
             local treeTypeDesc = g_treePlantManager:getTreeTypeDescFromIndex(foundTree.treeType)
-            InfoDisplayExtension.DebugTable("foundTree", foundTree);
-            InfoDisplayExtension.DebugTable("treeTypeDesc", treeTypeDesc);
+--             InfoDisplayExtension.DebugTable("foundTree", foundTree);
+--             InfoDisplayExtension.DebugTable("treeTypeDesc", treeTypeDesc);
 
             local fullGrown = true;
             local growStateText = g_i18n:getText("infohud_fullGrown");
@@ -922,7 +922,7 @@ Weitere informationen zu Bäumen anzeigen.]]
                 local hoursLeftInThisStage = foundTree.nextGrowthTargetHour - hoursNow;
                 local hoursInPreviousStages = (foundTree.growthStateI) * treeTypeDesc.growthTimeHours;
                 local ageInHours = hoursInPreviousStages - hoursLeftInThisStage;
-                InfoDisplayExtension.DebugText("hoursNow: %s - currentDay: %s - currentHour: %s - nextGrowthTargetHour: %s - hoursLeftInThisStage: %s - hoursInPreviousStages: %s", hoursNow, g_currentMission.environment.currentDay, g_currentMission.environment.currentHour, foundTree.nextGrowthTargetHour, hoursLeftInThisStage, hoursInPreviousStages)
+--                 InfoDisplayExtension.DebugText("hoursNow: %s - currentDay: %s - currentHour: %s - nextGrowthTargetHour: %s - hoursLeftInThisStage: %s - hoursInPreviousStages: %s", hoursNow, g_currentMission.environment.currentDay, g_currentMission.environment.currentHour, foundTree.nextGrowthTargetHour, hoursLeftInThisStage, hoursInPreviousStages)
                 ageText = g_i18n:formatNumber(ageInHours) .. " / " .. g_i18n:formatNumber(totalGrowHours) .. "h";
             end
 
