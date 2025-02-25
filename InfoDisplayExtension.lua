@@ -828,55 +828,55 @@ function InfoDisplayExtension:updateInfoFeedingRobot(_, infoTable)
 end
 FeedingRobot.updateInfo = Utils.overwrittenFunction(FeedingRobot.updateInfo, InfoDisplayExtension.updateInfoFeedingRobot)
 
+---Update the info table
+-- @param function superFunc
+-- @param entityId splitShape
 function InfoDisplayExtension:PlayerHUDUpdaterShowSplitShapeInfo(superFunc, splitShape)
---[[ original aus Patch 1.8.1 überschrieben
-Grund:
-Weitere informationen zu Bäumen anzeigen.]]
     if not entityExists(splitShape) or not getHasClassId(splitShape, ClassIds.MESH_SPLIT_SHAPE) then
-        return
+        return;
     end
 
-    local splitTypeId = getSplitType(splitShape)
+    local splitTypeId = getSplitType(splitShape);
 
     if splitTypeId == 0 then
-        return
+        return;
     end
 
-    local isSplit = getIsSplitShapeSplit(splitShape)
-    local isStatic = getRigidBodyType(splitShape) == RigidBodyType.STATIC
+    local isSplit = getIsSplitShapeSplit(splitShape);
+    local isStatic = getRigidBodyType(splitShape) == RigidBodyType.STATIC;
 
     if isSplit and isStatic then
-        return
+        return;
     end
 
-    local sizeX, sizeY, sizeZ, _, _ = getSplitShapeStats(splitShape)
-    local splitType = g_splitShapeManager:getSplitTypeByIndex(splitTypeId)
-    local splitTypeName = splitType and splitType.title
-    local length = math.max(sizeX, sizeY, sizeZ)
-    local box = self.objectBox
+    local sizeX, sizeY, sizeZ, _, _ = getSplitShapeStats(splitShape);
+    local splitType = g_splitShapeManager:getSplitTypeByIndex(splitTypeId);
+    local splitTypeName = splitType and splitType.title;
+    local length = math.max(sizeX, sizeY, sizeZ);
+    local box = self.objectBox;
 
-    box:clear()
+    box:clear();
 
     if isSplit then
-        box:setTitle(g_i18n:getText("infohud_wood"))
+        box:setTitle(g_i18n:getText("infohud_wood"));
     else
-        box:setTitle(g_i18n:getText("infohud_tree"))		
+        box:setTitle(g_i18n:getText("infohud_tree"));
     end
 
     if splitTypeName ~= nil then
-        box:addLine(g_i18n:getText("infohud_type"), splitTypeName)
+        box:addLine(g_i18n:getText("infohud_type"), splitTypeName);
     end
 
-    box:addLine(g_i18n:getText("infohud_length"), g_i18n:formatNumber(length, 1) .. " m")
+    box:addLine(g_i18n:getText("infohud_length"), g_i18n:formatNumber(length, 1) .. " m");
 
     -- durchmesser ist auch interessant
     local diameter = math.min(sizeX, sizeY, sizeZ)
-    box:addLine(g_i18n:getText("infohud_diameter"), g_i18n:formatNumber(diameter, 1) .. " m")
+    box:addLine(g_i18n:getText("infohud_diameter"), g_i18n:formatNumber(diameter, 1) .. " m");
 
     if g_currentMission:getIsServer() and not isStatic then
-        local mass = getMass(splitShape)
+        local mass = getMass(splitShape);
 
-        box:addLine(g_i18n:getText("infohud_mass"), g_i18n:formatMass(mass))
+        box:addLine(g_i18n:getText("infohud_mass"), g_i18n:formatMass(mass));
     end
 
     if not isSplit then
@@ -900,7 +900,7 @@ Weitere informationen zu Bäumen anzeigen.]]
         end
 
         if foundTree ~= nil then
-            local treeTypeDesc = g_treePlantManager:getTreeTypeDescFromIndex(foundTree.treeType)
+            local treeTypeDesc = g_treePlantManager:getTreeTypeDescFromIndex(foundTree.treeType);
 --             InfoDisplayExtension.DebugTable("foundTree", foundTree);
 --             InfoDisplayExtension.DebugTable("treeTypeDesc", treeTypeDesc);
 
@@ -911,14 +911,14 @@ Weitere informationen zu Bäumen anzeigen.]]
                 growStateText = tostring(foundTree.growthStateI) .. " / " .. tostring(numOfGrowStates);
                 fullGrown = false;
             end
-            box:addLine(g_i18n:getText("infohud_growthState"), growStateText)
+            box:addLine(g_i18n:getText("infohud_growthState"), growStateText);
 
             -- alter in Stunden mit Angabe des maximal alters
             local ageText = g_i18n:getText("infohud_fullGrown");
             if foundTree.growthStateI ~= 1 and foundTree.isGrowing == true and foundTree.nextGrowthTargetHour ~= nil then
                 local numOfGrowStates = #treeTypeDesc.stages;
                 local totalGrowHours = (treeTypeDesc.growthTimeHours * (numOfGrowStates - 1)) / g_currentMission.environment.timeAdjustment;
-                local hoursNow = ((g_currentMission.environment.currentDay - 1) * 24 ) + g_currentMission.environment.currentHour;
+                local hoursNow = ((g_currentMission.environment.currentDay) * 24 ) + g_currentMission.environment.currentHour;
                 local hoursLeftInThisStage = foundTree.nextGrowthTargetHour - hoursNow;
                 local hoursInPreviousStages = (foundTree.growthStateI) * treeTypeDesc.growthTimeHours;
                 local ageInHours = hoursInPreviousStages - hoursLeftInThisStage;
@@ -927,12 +927,12 @@ Weitere informationen zu Bäumen anzeigen.]]
             end
 
             if not fullGrown then
-                box:addLine(g_i18n:getText("infohud_ageInHours"), ageText)
+                box:addLine(g_i18n:getText("infohud_ageInHours"), ageText);
             end
         end
     end
 
-    box:showNextFrame()
+    box:showNextFrame();
 end
 PlayerHUDUpdater.showSplitShapeInfo = Utils.overwrittenFunction(PlayerHUDUpdater.showSplitShapeInfo, InfoDisplayExtension.PlayerHUDUpdaterShowSplitShapeInfo)
 
