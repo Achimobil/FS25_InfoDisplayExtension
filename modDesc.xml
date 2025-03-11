@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="96">
     <author>Achimobil</author>
-    <version>1.1.2.3</version>
+    <version>1.1.2.4</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -23,6 +23,10 @@ Erweitert die Info Hud Anzeigen von
 - Fabriken und Eventgebäude
 - Fügt, wo möglich, die Einheiten der Zahlen hinzu, da nicht alles in Litern ist.
 
+Folgende Basegame Fehler werden durch den Mod behoben
+- Missionen für Früchte die einen Krautschläger benötigen, werden jetzt erzeugt (Achtet darauf ob eure Karte auch einen passenden Verkaufspunkt für lose Ware hat)
+- Falsche Anzeige der Mengen in Fütterungsrobotern, wenn die Karte das Basis Rezept verändert hat
+
 Upload auf anderen Seiten außer dem ModHub ist verboten und somit illegal, Verlinkung nur mit Original-Downloadlink. KEIN Ersatzlink!
 Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestattet!
 
@@ -33,6 +37,7 @@ Changelog
 1.1.2.1 - Hungarian Translation from MathiasHU added
 1.1.2.2 - Debug Ausgabe bei Bäumen deaktiviert
 1.1.2.3 - Berechnung Baumzeiten korrigiert, waren 24h differenz im Wachstum
+1.1.2.4 - Fix für Misthaufen entfernt, da im Basegame per Patch behoben (Achtet darauf eine Misthaufen Erweiterung zu nutzen!)
 
 1.1.2.0
 - Fix für Patch 1.6 Fehler lua fehler
@@ -70,6 +75,10 @@ Extends the Info Hud displays of
 - Field growth
 - Factories and event buildings
 - Adds units of numbers where possible as not everything is in litres.
+
+The following basegame bugs are fixed by the mod
+- Missions for fruits that require a preparer are now generated (make sure that your map also has a suitable sales point for loose goods)
+- Incorrect display of quantities in feeding robots if the map has changed the base recipe
 
 Uploading to sites other than ModHub is prohibited and therefore illegal, linking only with original download link. NO substitute link!
 Modifying and re-uploading in whole or in part is not allowed!

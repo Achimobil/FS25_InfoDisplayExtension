@@ -1135,29 +1135,6 @@ function InfoDisplayExtension:onStartMission()
         InputHelpDisplay.MAX_NUM_ELEMENTS = InputHelpDisplay.MAX_NUM_ELEMENTS + extendInputHUDcount;
         InputHelpDisplay.MAX_NUM_ELEMENTS_HIGH_PRIORITY = InputHelpDisplay.MAX_NUM_ELEMENTS_HIGH_PRIORITY + extendInputHUDcountHigh;
     end
-
-    InfoDisplayExtension:ReconnectManureHeaps();
-end
-
----Fix für giants fehler im LS25
-function InfoDisplayExtension:ReconnectManureHeaps()
-
-    for _, manureLoadingStation in pairs(g_currentMission.manureLoadingStations) do
---         InfoDisplayExtension.DebugTable("manureLoadingStation", manureLoadingStation);
-
-        if manureLoadingStation.owningPlaceable ~= nil and manureLoadingStation.owningPlaceable.spec_manureHeap ~= nil then
-            local spec = manureLoadingStation.owningPlaceable.spec_manureHeap;
-            if #spec.manureHeap.unloadingStations == 0 then
-                print("InfoDisplayExtension: reconnect ManureHeap " .. manureLoadingStation.owningPlaceable:getName());
-                local storageSystem = g_currentMission.storageSystem;
-                local farmId = manureLoadingStation.owningPlaceable.ownerFarmId;
-                local lastFoundUnloadingStations = storageSystem:getExtendableUnloadingStationsInRange(spec.manureHeap, farmId)
-                local lastFoundLoadingStations = storageSystem:getExtendableLoadingStationsInRange(spec.manureHeap, farmId)
-                storageSystem:addStorageToUnloadingStations(spec.manureHeap, lastFoundUnloadingStations)
-                storageSystem:addStorageToLoadingStations(spec.manureHeap, lastFoundLoadingStations)
-            end
-        end
-    end
 end
 
 ---Simple check if this is server and not client
