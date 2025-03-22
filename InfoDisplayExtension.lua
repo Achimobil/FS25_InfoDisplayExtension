@@ -27,6 +27,7 @@ InfoDisplayExtension.modDir = g_currentModDirectory;
 source(InfoDisplayExtension.modDir.."scripts/PlaceableConstructibleInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
 
 --- Print the given Table to the log
 -- @param string text parameter Text before the table
@@ -1134,6 +1135,10 @@ function InfoDisplayExtension:onStartMission()
 
         InputHelpDisplay.MAX_NUM_ELEMENTS = InputHelpDisplay.MAX_NUM_ELEMENTS + extendInputHUDcount;
         InputHelpDisplay.MAX_NUM_ELEMENTS_HIGH_PRIORITY = InputHelpDisplay.MAX_NUM_ELEMENTS_HIGH_PRIORITY + extendInputHUDcountHigh;
+
+        -- need KeyboardHelperExtension to work
+        KeyboardHelper.KEY_GLYPHS[303] = "infoDisplayExtension_KEY_rshift";
+        KeyboardHelper.KEY_GLYPHS[304] = "infoDisplayExtension_KEY_lshift";
     end
 end
 

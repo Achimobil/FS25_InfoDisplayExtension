@@ -37,5 +37,8 @@
         <text name="infoDisplayExtension_animals_fitnessRange" text="Fitness"/>
         <text name="infoDisplayExtension_grazingFoodBuffer" text="Grazing Buffer"/>
         <text name="infoDisplayExtension_category" text="Kategorie"/>
+        <!-- Key replacments -->
+        <text name="infoDisplayExtension_KEY_lshift" text="L-Umsch"/>
+        <text name="infoDisplayExtension_KEY_rshift" text="R-Umsch"/>
     </texts>
 </l10n>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="96">
     <author>Achimobil</author>
-    <version>1.1.2.4</version>
+    <version>1.1.2.5</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -22,6 +22,7 @@ Erweitert die Info Hud Anzeigen von
 - Feldwachstum
 - Fabriken und Eventgebäude
 - Fügt, wo möglich, die Einheiten der Zahlen hinzu, da nicht alles in Litern ist.
+- verkürzt die Anzeige von Umschalt im Deutschen und Englischen im F1 Menü
 
 Folgende Basegame Fehler werden durch den Mod behoben
 - Missionen für Früchte die einen Krautschläger benötigen, werden jetzt erzeugt (Achtet darauf ob eure Karte auch einen passenden Verkaufspunkt für lose Ware hat)
@@ -38,6 +39,7 @@ Changelog
 1.1.2.2 - Debug Ausgabe bei Bäumen deaktiviert
 1.1.2.3 - Berechnung Baumzeiten korrigiert, waren 24h differenz im Wachstum
 1.1.2.4 - Fix für Misthaufen entfernt, da im Basegame per Patch behoben (Achtet darauf eine Misthaufen Erweiterung zu nutzen!)
+1.1.2.5 - Übersetzungen für Umschalt Taste im Deutschen und Englishen verkürzt
 
 1.1.2.0
 - Fix für Patch 1.6 Fehler lua fehler
@@ -75,6 +77,7 @@ Extends the Info Hud displays of
 - Field growth
 - Factories and event buildings
 - Adds units of numbers where possible as not everything is in litres.
+- shortens the display of Shift in German and English in F1 view
 
 The following basegame bugs are fixed by the mod
 - Missions for fruits that require a preparer are now generated (make sure that your map also has a suitable sales point for loose goods)
