@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="96">
     <author>Achimobil</author>
-    <version>1.1.2.6</version>
+    <version>1.1.2.7</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -41,6 +41,7 @@ Changelog
 1.1.2.4 - Fix für Misthaufen entfernt, da im Basegame per Patch behoben (Achtet darauf eine Misthaufen Erweiterung zu nutzen!)
 1.1.2.5 - Übersetzungen für Umschalt Taste im Deutschen und Englishen verkürzt
 1.1.2.6 - Update Übersetzungen in br und bt von Inoque71
+1.1.2.7 - Arbeitsbreitenanzeige geht jetzt auch wenn über andere Configurationen eingestellt
 
 1.1.2.0
 - Fix für Patch 1.6 Fehler lua fehler

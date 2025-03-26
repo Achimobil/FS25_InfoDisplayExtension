@@ -960,13 +960,20 @@ function InfoDisplayExtension:WearableShowInfo(superFunc, box)
         -- basis daten ohne config auslesen als ersten wert
         self.ideWorkingWidthValue = Vehicle.loadSpecValueWorkingWidth(self.xmlFile)
 
-        -- config laden geht nur, wenn es auch per config geht, sonst ist das was kommt nil
-        local workingWidth = Vehicle.loadSpecValueWorkingWidthConfig(self.xmlFile);		
-        if workingWidth ~= nil then
-            if self.configurations.workArea ~= nil and workingWidth.workArea ~= nil and workingWidth.workArea[self.configurations.workArea] ~= nil then
-                self.ideWorkingWidthValue = workingWidth.workArea[self.configurations.workArea];
+        -- alle configs durch gehen und die Werte von den passenden nutzen
+        local workingWidthConfigurations = Vehicle.loadSpecValueWorkingWidthConfig(self.xmlFile);
+        if workingWidthConfigurations ~= nil then
+            for configName, config in pairs(self.configurations) do
+                if workingWidthConfigurations[configName] ~= nil then
+                    local configWorkingWidth = workingWidthConfigurations[configName][config];
+
+                    if configWorkingWidth ~= nil then
+                        self.ideWorkingWidthValue = configWorkingWidth;
+                    end
+                end
             end
         end
+
         if self.ideWorkingWidthValue == nil then
             self.ideWorkingWidthValue = 0;
         end
