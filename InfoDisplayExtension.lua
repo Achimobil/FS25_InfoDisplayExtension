@@ -1106,7 +1106,7 @@ function InfoDisplayExtension.PlayerHUDUpdaterFieldAddField(self, fieldInfo, box
         local fruitTypeDesc = g_fruitTypeManager:getFruitTypeByIndex(fruitTypeIndex);
 
         if fruitTypeDesc:getIsGrowing(growthState) then
-            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.numGrowthStates))
+            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.minHarvestingGrowthState))
         end
     end
 end

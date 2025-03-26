@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="96">
     <author>Achimobil</author>
-    <version>1.1.2.8</version>
+    <version>1.1.2.9</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -43,6 +43,7 @@ Changelog
 1.1.2.6 - Update Übersetzungen in br und bt von Inoque71
 1.1.2.7 - Arbeitsbreitenanzeige geht jetzt auch wenn über andere Configurationen eingestellt
 1.1.2.8 - Arbeitsgeschwindigkeit wird nun angezeigt, wenn diese vorhanden ist
+1.1.2.9 - Fehlerhafte Wachstumsanzeige bei z.B. Trauben behoben
 
 1.1.2.0
 - Fix für Patch 1.6 Fehler lua fehler
