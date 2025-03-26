@@ -954,6 +954,15 @@ function InfoDisplayExtension:WearableShowInfo(superFunc, box)
         end
     end
 
+    if self.ideSpeedLimit == nil then
+
+        self.ideSpeedLimit = Vehicle.loadSpecValueSpeedLimit(self.xmlFile)
+
+        if self.ideSpeedLimit == nil then
+            self.ideSpeedLimit = 0;
+        end
+    end
+
     -- auslesen der Arbeitsbreite wie bei der benötigten Leistung, da config file gelesen werden muss per cache
     if self.ideWorkingWidthValue == nil then
 
@@ -988,6 +997,11 @@ function InfoDisplayExtension:WearableShowInfo(superFunc, box)
     if self.ideWorkingWidthValue ~= nil and self.ideWorkingWidthValue ~= 0 then
         local workingWidth = string.format(g_i18n:getText("shop_workingWidthValue"), g_i18n:formatNumber(self.ideWorkingWidthValue, 1, true));
         box:addLine(g_i18n:getText("shop_workingWidth"):gsub(":", ""), workingWidth)
+    end
+
+    if self.ideSpeedLimit ~= nil and self.ideSpeedLimit ~= 0 then
+        local speedLimit = string.format(g_i18n:getText("shop_maxSpeed"), string.format("%1d", g_i18n:getSpeed(self.ideSpeedLimit)), g_i18n:getSpeedMeasuringUnit())
+        box:addLine(g_i18n:getText("helpLine_IconOverview_WorkingSpeed"), speedLimit)
     end
 end
 Wearable.showInfo = Utils.appendedFunction(Wearable.showInfo, InfoDisplayExtension.WearableShowInfo)
