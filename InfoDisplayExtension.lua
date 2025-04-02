@@ -28,6 +28,7 @@ source(InfoDisplayExtension.modDir.."scripts/PlaceableConstructibleInfoDisplayEx
 source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/PlayerHUDUpdaterExtension.lua");
 
 --- Print the given Table to the log
 -- @param string text parameter Text before the table
@@ -1007,26 +1008,6 @@ function AnimalItemStockExtension.new(cluster, superFunc)
 end
 
 AnimalItemStock.new = Utils.overwrittenFunction(AnimalItemStock.new, AnimalItemStockExtension.new)
-
----append to PlayerHUDUpdater fieldAddField to add more information
--- @param table self
--- @param table fieldInfo
--- @param table box
-function InfoDisplayExtension.PlayerHUDUpdaterFieldAddField(self, fieldInfo, box)
-
-    local fruitTypeIndex = fieldInfo.fruitTypeIndex;
-    local growthState = fieldInfo.growthState;
-
-    if fruitTypeIndex ~= FruitType.UNKNOWN then
-        local fruitTypeDesc = g_fruitTypeManager:getFruitTypeByIndex(fruitTypeIndex);
-
-        if fruitTypeDesc:getIsGrowing(growthState) then
-            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.minHarvestingGrowthState))
-        end
-    end
-end
-
-PlayerHUDUpdater.fieldAddField = Utils.appendedFunction(PlayerHUDUpdater.fieldAddField, InfoDisplayExtension.PlayerHUDUpdaterFieldAddField)
 
 
 function InfoDisplayExtension:loadMap(name)
