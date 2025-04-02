@@ -37,8 +37,12 @@
         <text name="infoDisplayExtension_animals_fitnessRange" text="Fitness"/>
         <text name="infoDisplayExtension_grazingFoodBuffer" text="Quantidade de pastagem"/>
         <text name="infoDisplayExtension_category" text="Categoria"/>
-		<!-- Key replacments -->
-        <text name="infoDisplayExtension_KEY_lshift" text="L-Shift"/>
-        <text name="infoDisplayExtension_KEY_rshift" text="R-Shift"/>
+        <!-- Key replacments -->
+        <text name="infoDisplayExtension_KEY_lshift" text="Shift"/>
+        <text name="infoDisplayExtension_KEY_rshift" text="Shift-R"/>
+        <text name="infoDisplayExtension_KEY_lctrl" text="CTRL"/>
+        <text name="infoDisplayExtension_KEY_rctrl" text="CTRL-R"/>
+        <text name="infoDisplayExtension_KEY_lalt" text="ALT"/>
+        <text name="infoDisplayExtension_KEY_ralt" text="ALT-R"/>
     </texts>
 </l10n>

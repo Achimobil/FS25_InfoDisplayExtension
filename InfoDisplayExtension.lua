@@ -1160,6 +1160,10 @@ function InfoDisplayExtension:onStartMission()
         -- need KeyboardHelperExtension to work
         KeyboardHelper.KEY_GLYPHS[303] = "infoDisplayExtension_KEY_rshift";
         KeyboardHelper.KEY_GLYPHS[304] = "infoDisplayExtension_KEY_lshift";
+        KeyboardHelper.KEY_GLYPHS[305] = "infoDisplayExtension_KEY_rctrl";
+        KeyboardHelper.KEY_GLYPHS[306] = "infoDisplayExtension_KEY_lctrl";
+        KeyboardHelper.KEY_GLYPHS[307] = "infoDisplayExtension_KEY_ralt";
+        KeyboardHelper.KEY_GLYPHS[308] = "infoDisplayExtension_KEY_lalt";
     end
 end
 

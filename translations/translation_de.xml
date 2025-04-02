@@ -38,7 +38,11 @@
         <text name="infoDisplayExtension_grazingFoodBuffer" text="Grazing Buffer"/>
         <text name="infoDisplayExtension_category" text="Kategorie"/>
         <!-- Key replacments -->
-        <text name="infoDisplayExtension_KEY_lshift" text="L-Umsch"/>
-        <text name="infoDisplayExtension_KEY_rshift" text="R-Umsch"/>
+        <text name="infoDisplayExtension_KEY_lshift" text="Umsch"/>
+        <text name="infoDisplayExtension_KEY_rshift" text="Umsch-R"/>
+        <text name="infoDisplayExtension_KEY_lctrl" text="STRG"/>
+        <text name="infoDisplayExtension_KEY_rctrl" text="STRG-R"/>
+        <text name="infoDisplayExtension_KEY_lalt" text="ALT"/>
+        <text name="infoDisplayExtension_KEY_ralt" text="ALT-R"/>
     </texts>
 </l10n>
