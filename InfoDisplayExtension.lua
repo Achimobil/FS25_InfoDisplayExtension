@@ -28,7 +28,7 @@ source(InfoDisplayExtension.modDir.."scripts/PlaceableConstructibleInfoDisplayEx
 source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
-source(InfoDisplayExtension.modDir.."scripts/PlayerHUDUpdaterExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/idePlayerHUDUpdaterExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/ideWearableExtension.lua");
 
 --- Print the given Table to the log

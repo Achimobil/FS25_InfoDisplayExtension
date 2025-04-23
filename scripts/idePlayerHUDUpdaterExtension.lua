@@ -1,10 +1,10 @@
-PlayerHUDUpdaterExtension = {};
+IdePlayerHUDUpdaterExtension = {};
 
 ---append to PlayerHUDUpdater fieldAddField to add more information
 -- @param table self
 -- @param table fieldInfo
--- @param table box
-function PlayerHUDUpdaterExtension.fieldAddField(self, fieldInfo, box)
+-- @param InfoDisplayKeyValueBox box
+function IdePlayerHUDUpdaterExtension.fieldAddField(self, fieldInfo, box)
 
     local fruitTypeIndex = fieldInfo.fruitTypeIndex;
     local growthState = fieldInfo.growthState;
@@ -12,15 +12,21 @@ function PlayerHUDUpdaterExtension.fieldAddField(self, fieldInfo, box)
     if fruitTypeIndex ~= FruitType.UNKNOWN then
         local fruitTypeDesc = g_fruitTypeManager:getFruitTypeByIndex(fruitTypeIndex);
 
-        if fruitTypeDesc:getIsGrowing(growthState) then
+        if fruitTypeDesc.name == "GRASS" and growthState < fruitTypeDesc.maxHarvestingGrowthState then
+            -- Gras hat 2 erntebare Wachstumsstufen. Oliven aber auch und die kann man nicht unterscheiden aktuell ob es noch mal wächst oder nur verdorrt.
+            -- deshalb hier speziell für Gras eine Anzeige mit max state
+            -- Wenn richtige Früchte mit vielen Erntestufen kommen müsste man hier mal schauen wie man die doch noch unterscheiden kann.
+            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.maxHarvestingGrowthState))
+        elseif fruitTypeDesc:getIsGrowing(growthState) then
+            -- alles was keine Ausnahme ist kann über getIsGrowing geprüft werden ob eine Anzeige notwendig ist
             box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.minHarvestingGrowthState))
         end
     end
 end
 
-PlayerHUDUpdater.fieldAddField = Utils.appendedFunction(PlayerHUDUpdater.fieldAddField, PlayerHUDUpdaterExtension.fieldAddField)
+PlayerHUDUpdater.fieldAddField = Utils.appendedFunction(PlayerHUDUpdater.fieldAddField, IdePlayerHUDUpdaterExtension.fieldAddField)
 
-function PlayerHUDUpdaterExtension:fieldAddWeed(superFunc, data, box)
+function IdePlayerHUDUpdaterExtension:fieldAddWeed(superFunc, data, box)
 --     InfoDisplayExtension.DebugText("InfoDisplayExtension:fieldAddWeed(%s, %s, %s)", superFunc, data, box)
     if g_currentMission.missionInfo.weedsEnabled then
         local weedSystem = g_currentMission.weedSystem
@@ -60,4 +66,4 @@ function PlayerHUDUpdaterExtension:fieldAddWeed(superFunc, data, box)
     end
 end
 
-PlayerHUDUpdater.fieldAddWeed = Utils.overwrittenFunction(PlayerHUDUpdater.fieldAddWeed, PlayerHUDUpdaterExtension.fieldAddWeed)
+PlayerHUDUpdater.fieldAddWeed = Utils.overwrittenFunction(PlayerHUDUpdater.fieldAddWeed, IdePlayerHUDUpdaterExtension.fieldAddWeed)
