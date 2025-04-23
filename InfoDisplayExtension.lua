@@ -29,11 +29,12 @@ source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtensio
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlayerHUDUpdaterExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/ideWearableExtension.lua");
 
 --- Print the given Table to the log
 -- @param string text parameter Text before the table
 -- @param table myTable The table to print
--- @param number maxDepth depth of print, default 2
+-- @param any|number maxDepth depth of print, default 2
 function InfoDisplayExtension.DebugTable(text, myTable, maxDepth)
     if not InfoDisplayExtension.Debug then return end
     if myTable == nil then
@@ -852,75 +853,6 @@ function InfoDisplayExtension:PlayerHUDUpdaterShowSplitShapeInfo(superFunc, spli
     box:showNextFrame();
 end
 PlayerHUDUpdater.showSplitShapeInfo = Utils.overwrittenFunction(PlayerHUDUpdater.showSplitShapeInfo, InfoDisplayExtension.PlayerHUDUpdaterShowSplitShapeInfo)
-
--- hier brauche ich nicht überschreiben, nur direkt die funktion möglich machen reicht.
-function InfoDisplayExtension:WearableShowInfo(superFunc, box)
-    if self.ideNeededPowerValue == nil then
-
-        local neededPower = PowerConsumer.loadSpecValueNeededPower(self.xmlFile)
-
-        self.ideNeededPowerValue = neededPower.base;
-
-        if self.configurations.powerConsumer ~= nil then
-            self.ideNeededPowerValue = neededPower.config[self.configurations.powerConsumer];
-        end
-
-        if self.ideNeededPowerValue == nil then
-            self.ideNeededPowerValue = 0;
-        end
-    end
-
-    if self.ideSpeedLimit == nil then
-
-        self.ideSpeedLimit = Vehicle.loadSpecValueSpeedLimit(self.xmlFile)
-
-        if self.ideSpeedLimit == nil then
-            self.ideSpeedLimit = 0;
-        end
-    end
-
-    -- auslesen der Arbeitsbreite wie bei der benötigten Leistung, da config file gelesen werden muss per cache
-    if self.ideWorkingWidthValue == nil then
-
-        -- basis daten ohne config auslesen als ersten wert
-        self.ideWorkingWidthValue = Vehicle.loadSpecValueWorkingWidth(self.xmlFile)
-
-        -- alle configs durch gehen und die Werte von den passenden nutzen
-        local workingWidthConfigurations = Vehicle.loadSpecValueWorkingWidthConfig(self.xmlFile);
-        if workingWidthConfigurations ~= nil then
-            for configName, config in pairs(self.configurations) do
-                if workingWidthConfigurations[configName] ~= nil then
-                    local configWorkingWidth = workingWidthConfigurations[configName][config];
-
-                    if configWorkingWidth ~= nil then
-                        self.ideWorkingWidthValue = configWorkingWidth;
-                    end
-                end
-            end
-        end
-
-        if self.ideWorkingWidthValue == nil then
-            self.ideWorkingWidthValue = 0;
-        end
-    end
-
-    if self.ideNeededPowerValue ~= nil and self.ideNeededPowerValue ~= 0 then
-        local hp, kw = g_i18n:getPower(self.ideNeededPowerValue)
-        local neededPower = string.format(g_i18n:getText("shop_neededPowerValue"), MathUtil.round(kw), MathUtil.round(hp));
-        box:addLine(g_i18n:getText("shop_neededPower"):gsub(":", ""), neededPower)
-    end
-
-    if self.ideWorkingWidthValue ~= nil and self.ideWorkingWidthValue ~= 0 then
-        local workingWidth = string.format(g_i18n:getText("shop_workingWidthValue"), g_i18n:formatNumber(self.ideWorkingWidthValue, 1, true));
-        box:addLine(g_i18n:getText("shop_workingWidth"):gsub(":", ""), workingWidth)
-    end
-
-    if self.ideSpeedLimit ~= nil and self.ideSpeedLimit ~= 0 then
-        local speedLimit = string.format(g_i18n:getText("shop_maxSpeed"), string.format("%1d", g_i18n:getSpeed(self.ideSpeedLimit)), g_i18n:getSpeedMeasuringUnit())
-        box:addLine(g_i18n:getText("helpLine_IconOverview_WorkingSpeed"), speedLimit)
-    end
-end
-Wearable.showInfo = Utils.appendedFunction(Wearable.showInfo, InfoDisplayExtension.WearableShowInfo)
 
 ---append to Vehicle showInfo to add more information
 -- @param table box
