@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
     <translationContributors>[_Mario_], Ziuta</translationContributors>
-    <version>1.0.1.10</version>
+    <version>1.0.1.11</version>
     <texts>
         <text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="Rozszerzone informacje o pojemności"/>
         <text name="infoDisplayExtension_USED_CAPACITY" text="Pojemność w użyciu"/>
@@ -38,5 +38,12 @@
         <text name="infoDisplayExtension_animals_fitnessRange" text="Kondycja"/>
         <text name="infoDisplayExtension_grazingFoodBuffer" text="Pastwisko"/>
         <text name="infoDisplayExtension_category" text="Kategoria"/>
+        <!-- Key replacments -->
+        <text name="infoDisplayExtension_KEY_lshift" text="Lewy Shift"/>
+        <text name="infoDisplayExtension_KEY_rshift" text="Prawy Shift"/>
+        <text name="infoDisplayExtension_KEY_lctrl" text="Lewy CTRL"/>
+        <text name="infoDisplayExtension_KEY_rctrl" text="Prawy CTRL"/>
+        <text name="infoDisplayExtension_KEY_lalt" text="Lewy ALT"/>
+        <text name="infoDisplayExtension_KEY_ralt" text="Prawy ALT"/>
     </texts>
 </l10n>
