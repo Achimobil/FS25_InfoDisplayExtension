@@ -698,6 +698,11 @@ function InfoDisplayExtension:updateInfoPlaceableManureHeap(_, superFunc, infoTa
         return
     end
 
+    -- skip filllevel of manure heap when the building itself has also spec_husbandryStraw. because then filllevel is shown there
+    if self.spec_husbandryStraw ~= nil then
+        return
+    end
+
     local fillLevel = spec.manureHeap:getFillLevel(spec.manureHeap.fillTypeIndex);
     local capacity = spec.manureHeap:getCapacity(spec.manureHeap.fillTypeIndex);
     spec.infoFillLevel.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(spec.manureHeap.fillTypeIndex));

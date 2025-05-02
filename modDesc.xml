@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="97">
     <author>Achimobil</author>
-    <version>1.1.2.14</version>
+    <version>1.1.2.15</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -49,6 +49,7 @@ Changelog
 1.1.2.12 - Unterstützung des Adjust Working Speed Mods. Anzeige der tatsächlichen Arbeitsgeschwindigkeit und in Klammern die Originale
 1.1.2.13 - Gras Wachstum wird nun in der ersten Stufe angezeigt das noch eine weitere Stufe kommt
 1.1.2.14 - Tastenübersetzungen auch für PL
+1.1.2.15 - Giantsfehler der Doppelten Mist anzeige bei Tierställen mit integriertem Misthaufen behoben
 
 1.1.2.0
 - Fix für Patch 1.6 Fehler lua fehler
