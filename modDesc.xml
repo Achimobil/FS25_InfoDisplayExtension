@@ -17,7 +17,7 @@ Erweitert die Info Hud Anzeigen von
 - Produktionen
 - Tierställen
 - Misthaufen
-- Bäumen
+- Bäumen (vieles nur im Single Player verfügbar)
 - Fahrzeuge und Anbaugeräte
 - Feldwachstum
 - Fabriken und Eventgebäude
@@ -27,6 +27,7 @@ Erweitert die Info Hud Anzeigen von
 Folgende Basegame Fehler werden durch den Mod behoben
 - Missionen für Früchte die einen Krautschläger benötigen, werden jetzt erzeugt (Achtet darauf ob eure Karte auch einen passenden Verkaufspunkt für lose Ware hat)
 - Falsche Anzeige der Mengen in Fütterungsrobotern, wenn die Karte das Basis Rezept verändert hat
+- Doppelten Mist anzeige bei Tierställen mit integriertem Misthaufen
 
 Upload auf anderen Seiten außer dem ModHub ist verboten und somit illegal, Verlinkung nur mit Original-Downloadlink. KEIN Ersatzlink!
 Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestattet!
@@ -35,21 +36,19 @@ Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoD
 
 Changelog
 
-1.1.2.1 - Hungarian Translation from MathiasHU added
-1.1.2.2 - Debug Ausgabe bei Bäumen deaktiviert
-1.1.2.3 - Berechnung Baumzeiten korrigiert, waren 24h differenz im Wachstum
-1.1.2.4 - Fix für Misthaufen entfernt, da im Basegame per Patch behoben (Achtet darauf eine Misthaufen Erweiterung zu nutzen!)
-1.1.2.5 - Übersetzungen für Umschalt Taste im Deutschen und Englishen verkürzt
-1.1.2.6 - Update Übersetzungen in br und bt von Inoque71
-1.1.2.7 - Arbeitsbreitenanzeige geht jetzt auch wenn über andere Configurationen eingestellt
-1.1.2.8 - Arbeitsgeschwindigkeit wird nun angezeigt, wenn diese vorhanden ist
-1.1.2.9 - Fehlerhafte Wachstumsanzeige bei z.B. Trauben behoben
-1.1.2.10 - RECHTS STRG und RECHTS ALT auch ersetzt
-1.1.2.11 - Unkraut Status wird nun angezeigt mit Gerät das notwendig ist
-1.1.2.12 - Unterstützung des Adjust Working Speed Mods. Anzeige der tatsächlichen Arbeitsgeschwindigkeit und in Klammern die Originale
-1.1.2.13 - Gras Wachstum wird nun in der ersten Stufe angezeigt das noch eine weitere Stufe kommt
-1.1.2.14 - Tastenübersetzungen auch für PL
-1.1.2.15 - Giantsfehler der Doppelten Mist anzeige bei Tierställen mit integriertem Misthaufen behoben
+1.2.0.0
+- Weitere Übersetzungen hinzugefügt
+- Debug Ausgabe bei Bäumen deaktiviert
+- Berechnung Baumzeiten korrigiert, waren 24h differenz im Wachstum
+- Fix für Misthaufen entfernt, da im Basegame per Patch behoben (Achtet darauf eine Misthaufen Erweiterung zu nutzen!)
+- Übersetzungen für verschiedene Tasten für einige Sprachen im F1 Menü verkürzt
+- Arbeitsbreitenanzeige geht jetzt auch wieder, wenn über andere Configurationen eingestellt (Fix Patch 1.7)
+- Arbeitsgeschwindigkeit wird nun angezeigt, wenn diese vorhanden ist
+- Fehlerhafte Wachstumsanzeige bei z.B. Trauben behoben
+- Unkraut Status wird nun angezeigt mit Gerät das notwendig ist
+- Unterstützung des Adjust Working Speed Mods. Anzeige der tatsächlichen Arbeitsgeschwindigkeit und in Klammern die Originale
+- Gras Wachstum wird nun in der ersten Stufe angezeigt das noch eine weitere Stufe kommt
+- Giantsfehler der Doppelten Mist anzeige bei Tierställen mit integriertem Misthaufen behoben
 
 1.1.2.0
 - Fix für Patch 1.6 Fehler lua fehler
@@ -67,13 +66,6 @@ Changelog
 - Eventgebäude Anzeigen erweitert
 - Erhöhung der im F1 Menü angezeigten Standardeinträge (Danke an HoFFi)
 - Misthaufen nicht verbunden nach Spiel laden Fehler behoben (Behebt Basegame Fehler, bis es in einem Patch behoben ist)
-
-1.0.1.0
-- Lua Fehler in Berechnungen für selbstgepflanzte Bäume korrigiert
-- Altersberechnung für Bäume korrigiert
-- Übersetzungskorrekturen eingefügt
-- Türkische Übersetzungen hinzugefügt
-
 ]]></de>
         <en><![CDATA[A small mod to extend the displays.
 
@@ -82,7 +74,7 @@ Extends the Info Hud displays of
 - Productions
 - animal sheeds
 - Manure heaps
-- trees
+- trees (Most information ony in single player available)
 - Vehicles and attachments
 - Field growth
 - Factories and event buildings
@@ -92,6 +84,7 @@ Extends the Info Hud displays of
 The following basegame bugs are fixed by the mod
 - Missions for fruits that require a preparer are now generated (make sure that your map also has a suitable sales point for loose goods)
 - Incorrect display of quantities in feeding robots if the map has changed the base recipe
+- Double manure display for animal barns with integrated manure pile
 
 Uploading to sites other than ModHub is prohibited and therefore illegal, linking only with original download link. NO substitute link!
 Modifying and re-uploading in whole or in part is not allowed!
@@ -99,6 +92,20 @@ Modifying and re-uploading in whole or in part is not allowed!
 Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+
+1.2.0.0
+- More translations added
+- Debug output for trees deactivated
+- Corrected calculation of tree times, were 24h difference in growth
+- Fix for manure heap removed, as fixed in the base game by patch (Make sure to use a manure heap extension!)
+- Shortened translations for various keys for some languages in the F1 menu
+- Working width display now works again if set via other configurations (Fix Patch 1.7)
+- Working speed is now displayed if it is available
+- Fixed incorrect growth display for e.g. grapes
+- Weed status is now displayed with device that is necessary
+- Support of the Adjust Working Speed mod. Display of the actual working speed and the original in brackets
+- Grass growth is now displayed in the first stage that another stage is coming
+- Fixed giant error of double manure display for animal barns with integrated manure pile
 
 1.1.2.0
 - Fix for patch 1.6 error lua error
@@ -116,12 +123,6 @@ Changelog
 - Event building displays extended
 - Increased the standard entries displayed in the F1 menu (thanks to HoFFi)
 - Manure heap not connected after game load bug fixed (Fixes basegame bug until it is fixed in a patch)
-
-1.0.1.0
-- Lua error in calculations for self-planted trees corrected
-- Corrected age calculation for trees
-- Added translation corrections
-- Turkish translations added
 ]]></en>
     </description>
 
