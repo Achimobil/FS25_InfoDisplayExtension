@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="97">
+<modDesc descVersion="99">
     <author>Achimobil</author>
-    <version>1.1.2.15</version>
+    <version>1.2.0.1</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -35,6 +35,9 @@ Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestat
 Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+
+1.2.0.1
+- Fix lua error mit Patch 1.9.0.1 bezüglich Arbeitsbreiten
 
 1.2.0.0
 - Weitere Übersetzungen hinzugefügt
@@ -92,6 +95,9 @@ Modifying and re-uploading in whole or in part is not allowed!
 Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+
+1.2.0.1
+- Fix lua error of Patch 1.9.0.1 with working width
 
 1.2.0.0
 - More translations added
