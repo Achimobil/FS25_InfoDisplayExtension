@@ -12,7 +12,7 @@ function IdePlayerHUDUpdaterExtension.fieldAddField(self, fieldInfo, box)
     if fruitTypeIndex ~= FruitType.UNKNOWN then
         local fruitTypeDesc = g_fruitTypeManager:getFruitTypeByIndex(fruitTypeIndex);
 
-        if fruitTypeDesc.name == "GRASS" and growthState < fruitTypeDesc.maxHarvestingGrowthState then
+        if (fruitTypeDesc.name == "GRASS" or fruitTypeDesc.name == "MEADOW") and growthState < fruitTypeDesc.maxHarvestingGrowthState then
             -- Gras hat 2 erntebare Wachstumsstufen. Oliven aber auch und die kann man nicht unterscheiden aktuell ob es noch mal wächst oder nur verdorrt.
             -- deshalb hier speziell für Gras eine Anzeige mit max state
             -- Wenn richtige Früchte mit vielen Erntestufen kommen müsste man hier mal schauen wie man die doch noch unterscheiden kann.
