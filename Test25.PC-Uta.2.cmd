@@ -1,0 +1,2 @@
+"C:\Program Files\7-Zip\7z.exe" u -tzip "C:\Users\achim\Documents\My Games\FarmingSimulator2025\mods\FS25_InfoDisplayExtension.zip" -x@FileDefinition.txt
+start "" "C:\Program Files (x86)\Farming Simulator 2025\x64\FarmingSimulator2025Game.exe" -autoStartSavegameId 2 -cheats -skipModUpdateDialog
