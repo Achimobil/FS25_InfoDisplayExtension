@@ -12,14 +12,26 @@ function IdePlayerHUDUpdaterExtension.fieldAddField(self, fieldInfo, box)
     if fruitTypeIndex ~= FruitType.UNKNOWN then
         local fruitTypeDesc = g_fruitTypeManager:getFruitTypeByIndex(fruitTypeIndex);
 
-        if (fruitTypeDesc.name == "GRASS" or fruitTypeDesc.name == "MEADOW") and growthState < fruitTypeDesc.maxHarvestingGrowthState then
-            -- Gras hat 2 erntebare Wachstumsstufen. Oliven aber auch und die kann man nicht unterscheiden aktuell ob es noch mal wächst oder nur verdorrt.
-            -- deshalb hier speziell für Gras eine Anzeige mit max state
-            -- Wenn richtige Früchte mit vielen Erntestufen kommen müsste man hier mal schauen wie man die doch noch unterscheiden kann.
-            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.maxHarvestingGrowthState))
-        elseif fruitTypeDesc:getIsGrowing(growthState) then
-            -- alles was keine Ausnahme ist kann über getIsGrowing geprüft werden ob eine Anzeige notwendig ist
-            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, fruitTypeDesc.minHarvestingGrowthState))
+        -- Wenn etwas mehrere Erntestufen hat, dann sind es entweder tatsächliche mehrere wie bei Gras oder es sind weed oder andere states dabei.
+        -- ich müsste immer max nehmen können solange es nicht ein sonderstatus ist.
+        -- Idee ist may state prüfen und runter setzen wenn sonderstatus. Wenn dann max und min nicht gleich sind, dann ist sonderstatus
+        -- da die sonderstatus aber gemixed sein können wo was ist, mehrfach durchlaufen
+        -- oliven sind im basegame falsch definiert, da fehler bei der weed stufe das isWeed. Das ist aber nicht mein problem
+        local maxStateToShow = fruitTypeDesc.minHarvestingGrowthState;
+        local showSate = fruitTypeDesc:getIsGrowing(growthState);
+        if fruitTypeDesc.yieldScales[fruitTypeDesc.minHarvestingGrowthState] ~= nil then
+            -- for fruits like grass where the states have growing yields defined we use the max state to show.
+            -- so when the min state has not full harvest amount, then change it
+            -- this is more stable than on name and also respect new fruits based on grass or meadow
+            if fruitTypeDesc.yieldScales[fruitTypeDesc.minHarvestingGrowthState] ~= 1 then
+                maxStateToShow = fruitTypeDesc.maxHarvestingGrowthState;
+                -- override grow state because in this case the state needs to be shown even it is not growing
+                -- or other explained. When it is not fruit like grass then show only when is growing
+                showSate = true
+            end
+        end
+        if showSate and growthState < maxStateToShow then
+            box:addLine(g_i18n:getText("ui_map_growth"), string.format("%s / %s", growthState, maxStateToShow))
         end
     end
 end

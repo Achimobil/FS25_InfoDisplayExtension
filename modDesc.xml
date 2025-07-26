@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="99">
+<modDesc descVersion="100">
     <author>Achimobil</author>
-    <version>1.2.0.2</version>
+    <version>1.2.0.3</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -37,6 +37,7 @@ Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoD
 Changelog
 
 1.2.0.2 - Fix für GRASS auch auf MEADOW erweitert.
+1.2.0.3 - Fix für GRASS umgebaut auf Früchte die in der ersten Wachstumsstufe nicht 100% Ertrag haben
 
 1.2.0.1
 - Fix lua error mit Patch 1.9.0.1 bezüglich Arbeitsbreiten
