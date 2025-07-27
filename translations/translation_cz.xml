@@ -36,6 +36,6 @@
         <text name="infoDisplayExtension_animals_fitness" text="Kondice"/>
         <text name="infoDisplayExtension_animals_fitnessRange" text="Kondice"/>
         <text name="infoDisplayExtension_grazingFoodBuffer" text="Pastvina"/>
-        <text name="infoDisplayExtension_category" text="Category"/>
+        <text name="infoDisplayExtension_category" text="Kategorie"/>
     </texts>
 </l10n>
