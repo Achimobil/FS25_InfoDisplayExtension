@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="100">
+<modDesc descVersion="103">
     <author>Achimobil</author>
-    <version>1.2.0.4</version>
+    <version>1.2.1.0</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -36,9 +36,9 @@ Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoD
 
 Changelog
 
-1.2.0.2 - Fix für GRASS auch auf MEADOW erweitert.
-1.2.0.3 - Fix für GRASS umgebaut auf Früchte die in der ersten Wachstumsstufe nicht 100% Ertrag haben
-1.2.0.4 - Übersetzungen durch Community
+1.2.1.0
+- Fix für Früchte wie Gras damit das Wachtum korrekt angezeigt wird
+- Übersetzungen durch Community
 
 1.2.0.1
 - Fix lua error mit Patch 1.9.0.1 bezüglich Arbeitsbreiten
@@ -63,16 +63,6 @@ Changelog
 - Übersetzungen für IT und UK hinzigefügt
 - Lua Error gefixed bei Fahrzeugen die keine Shop Kategorie haben
 - Integrierter und externer Mistspeicher von Kuhställen wird jetzt auch angezeigt
-
-1.1.0.0
-- Verbesserte Übersetzungen für DE und PL und neue Übersetzungen in PT und CS
-- Wachstumsphase und maximales Wachstum anzeigen
-- Lua Fehler bei Bäumen in der letzten Wachstumsphase behoben
-- Fahrzeuge zeigen jetzt Shop Kategorie und aktuelles Gewicht an
-- Fabriken max. und Fortschrittsanzeige hinzugefügt
-- Eventgebäude Anzeigen erweitert
-- Erhöhung der im F1 Menü angezeigten Standardeinträge (Danke an HoFFi)
-- Misthaufen nicht verbunden nach Spiel laden Fehler behoben (Behebt Basegame Fehler, bis es in einem Patch behoben ist)
 ]]></de>
         <en><![CDATA[A small mod to extend the displays.
 
@@ -100,6 +90,10 @@ Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoD
 
 Changelog
 
+1.2.1.0
+- Fix for fruits such as grass so that growth is displayed correctly
+- Translations by the community
+
 1.2.0.1
 - Fix lua error of Patch 1.9.0.1 with working width
 
@@ -123,16 +117,6 @@ Changelog
 - Added translations for IT and UK
 - Lua error fixed for vehicles that do not have a shop category
 - Integrated and external manure storage of cowsheds is now also displayed
-
-1.1.0.0
-- Improved translations for DE and PL and new translations in PT and CS
-- Show growth phase and maximum growth
-- Lua bug fixed for trees in the last growth phase
-- Vehicles now show shop category and current weight
-- Added factories max. and progress indicator
-- Event building displays extended
-- Increased the standard entries displayed in the F1 menu (thanks to HoFFi)
-- Manure heap not connected after game load bug fixed (Fixes basegame bug until it is fixed in a patch)
 ]]></en>
     </description>
 
