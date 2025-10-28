@@ -55,7 +55,10 @@ function IdeWearableExtension:WearableShowInfo(superFunc, box)
     if self.ideWorkingWidthValue == nil then
 
         -- basis daten ohne config auslesen als ersten wert
-        self.ideWorkingWidthValue = Vehicle.loadSpecValueWorkingWidth(self.xmlFile)
+        local widthStuff = Vehicle.loadSpecValueWorkingWidth(self.xmlFile);
+        if widthStuff ~= nil then
+            self.ideWorkingWidthValue = widthStuff.width;
+        end
         InfoDisplayExtension.DebugText("ideWorkingWidthValue: %s", self.ideWorkingWidthValue);
 
         -- alle configs durch gehen und die Werte von den passenden nutzen

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="103">
+<modDesc descVersion="104">
     <author>Achimobil</author>
-    <version>1.2.1.0</version>
+    <version>1.2.1.1</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -35,6 +35,9 @@ Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestat
 Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+
+1.2.1.1
+- Fix für Patch 1.14
 
 1.2.1.0
 - Fix für Früchte wie Gras damit das Wachtum korrekt angezeigt wird
@@ -89,6 +92,9 @@ Modifying and re-uploading in whole or in part is not allowed!
 Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
 
 Changelog
+
+1.2.1.1
+- Fix für Patch 1.14
 
 1.2.1.0
 - Fix for fruits such as grass so that growth is displayed correctly
