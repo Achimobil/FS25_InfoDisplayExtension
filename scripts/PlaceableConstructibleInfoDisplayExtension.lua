@@ -1,8 +1,21 @@
 PlaceableConstructibleInfoDisplayExtension = {};
 
+---Update the info table
+-- @param function superFunc the original overwritten function
+-- @param table infoTable the table with the infos to show
 function PlaceableConstructibleInfoDisplayExtension:updateInfo(_, superFunc, infoTable)
     superFunc(self, infoTable);
     local spec = self.spec_constructible;
+
+    local finishedStates, numConstructibleStates = self:getNumFinishedConstructibleStates()
+    if finishedStates < numConstructibleStates then
+        local newEntry = {
+            ["title"] = g_i18n:getText("ui_construction_state"),
+            ["text"] = string.format("(%d / %d)", finishedStates, numConstructibleStates)
+        }
+        table.insert(infoTable, newEntry)
+    end
+
     spec.fillTypesAndLevelsAuxiliary = {}
     for fillTypeId, fillLevel in pairs(spec.storage:getFillLevels()) do
         spec.fillTypesAndLevelsAuxiliary[fillTypeId] = (spec.fillTypesAndLevelsAuxiliary[fillTypeId] or 0) + fillLevel
@@ -52,7 +65,12 @@ end
 PlaceableConstructible.updateInfo = Utils.overwrittenFunction(PlaceableConstructible.updateInfo, PlaceableConstructibleInfoDisplayExtension.updateInfo)
 
 ConstructibleStateBuildingInfoDisplayExtension = {};
-function ConstructibleStateBuildingInfoDisplayExtension:updateInfo(superfunc, infoTable, fillTypeToFillTypeStorageTable)
+
+---Update the info table
+-- @param function superFunc the original overwritten function
+-- @param table infoTable the table with the infos to show
+-- @param table fillTypeToFillTypeStorageTable with information about the fill types
+function ConstructibleStateBuildingInfoDisplayExtension:updateInfo(superFunc, infoTable, fillTypeToFillTypeStorageTable)
     table.insert(infoTable, self.infoBoxRequiredGoods);
     for _, input in ipairs(self.inputs) do
         if input.remainingAmount > 0 then
