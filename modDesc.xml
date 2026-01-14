@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="104">
+<modDesc descVersion="105">
     <author>Achimobil</author>
-    <version>1.2.1.2</version>
+    <version>1.2.2.0</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -36,7 +36,8 @@ Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoD
 
 Changelog
 
-1.2.1.2 - Neue Fortschrittsanzeige vom Basegame bei baubaren Objekten eingefügt
+1.2.2.0
+- Fortschrittsanzeige bei baubaren Objekten eingefügt
 
 1.2.1.1
 - Fix für Patch 1.14
@@ -61,13 +62,6 @@ Changelog
 - Unterstützung des Adjust Working Speed Mods. Anzeige der tatsächlichen Arbeitsgeschwindigkeit und in Klammern die Originale
 - Gras Wachstum wird nun in der ersten Stufe angezeigt das noch eine weitere Stufe kommt
 - Giantsfehler der Doppelten Mist anzeige bei Tierställen mit integriertem Misthaufen behoben
-
-1.1.2.0
-- Fix für Patch 1.6 Fehler lua fehler
-- Missionen mit Krautschlägern werden nun erzeugt
-- Übersetzungen für IT und UK hinzigefügt
-- Lua Error gefixed bei Fahrzeugen die keine Shop Kategorie haben
-- Integrierter und externer Mistspeicher von Kuhställen wird jetzt auch angezeigt
 ]]></de>
         <en><![CDATA[A small mod to extend the displays.
 
@@ -95,6 +89,9 @@ Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoD
 
 Changelog
 
+1.2.2.0
+- Progress bar added for buildable objects
+
 1.2.1.1
 - Fix für Patch 1.14
 
@@ -118,13 +115,6 @@ Changelog
 - Support of the Adjust Working Speed mod. Display of the actual working speed and the original in brackets
 - Grass growth is now displayed in the first stage that another stage is coming
 - Fixed giant error of double manure display for animal barns with integrated manure pile
-
-1.1.2.0
-- Fix for patch 1.6 error lua error
-- Missions with weed whackers are now generated
-- Added translations for IT and UK
-- Lua error fixed for vehicles that do not have a shop category
-- Integrated and external manure storage of cowsheds is now also displayed
 ]]></en>
     </description>
 
