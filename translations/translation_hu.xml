@@ -19,7 +19,7 @@
         <text name="infohud_Input" text="Bemenet"/>
         <text name="infohud_both" text="Bemenet és kimenet"/>
         <text name="infohud_Output" text="Kimenet"/>
-        <!-- Állatokkal kapcsolatos szövegek -->
+        <!-- Animal Texts -->
         <text name="infoDisplayExtension_animals_health" text="Egészség"/>
         <text name="infoDisplayExtension_animals_healthRange" text="Egészségi állapot"/>
         <text name="infoDisplayExtension_animals_duration" text="Szaporodási idő"/>
@@ -37,5 +37,13 @@
         <text name="infoDisplayExtension_animals_fitnessRange" text="Fittség állapot"/>
         <text name="infoDisplayExtension_grazingFoodBuffer" text="Legeltetési puffer"/>
         <text name="infoDisplayExtension_category" text="Kategória"/>
+        <!-- Key replacments -->
+        <text name="infoDisplayExtension_KEY_lshift" text="Shift"/>
+        <text name="infoDisplayExtension_KEY_rshift" text="Shift-R"/>
+        <text name="infoDisplayExtension_KEY_lctrl" text="CTRL"/>
+        <text name="infoDisplayExtension_KEY_rctrl" text="CTRL-R"/>
+        <text name="infoDisplayExtension_KEY_lalt" text="ALT"/>
+        <text name="infoDisplayExtension_KEY_ralt" text="ALT-R"/>
     </texts>
+
 </l10n>

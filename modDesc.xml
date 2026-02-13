@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="105">
+<modDesc descVersion="106">
     <author>Achimobil</author>
-    <version>1.2.2.0</version>
+    <version>1.2.2.1</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -32,9 +32,10 @@ Folgende Basegame Fehler werden durch den Mod behoben
 Upload auf anderen Seiten außer dem ModHub ist verboten und somit illegal, Verlinkung nur mit Original-Downloadlink. KEIN Ersatzlink!
 Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestattet!
 
-Fehler und Anregungen gerne auf <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
+Fehler und Anregungen gerne auf GitHub: https://github.com/Achimobil/FS25_InfoDisplayExtension
 
 Changelog
+1.2.2.1 - Übersetzungen in HU von Community verbessert
 
 1.2.2.0
 - Fortschrittsanzeige bei baubaren Objekten eingefügt
@@ -85,7 +86,7 @@ The following basegame bugs are fixed by the mod
 Uploading to sites other than ModHub is prohibited and therefore illegal, linking only with original download link. NO substitute link!
 Modifying and re-uploading in whole or in part is not allowed!
 
-Bugs and suggestions welcome on <a href="https://github.com/Achimobil/FS25_InfoDisplayExtension">GitHub</a>.
+Bugs and suggestions welcome on GitHub: https://github.com/Achimobil/FS25_InfoDisplayExtension
 
 Changelog
 
