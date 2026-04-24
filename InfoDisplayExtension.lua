@@ -1,16 +1,24 @@
 --[[
-Copyright (C) Achimobil, 2022-2024
+Copyright (C) Achimobil, 2022-2026
 
 Author: Achimobil
 
-Contact:
-https://github.com/Achimobil/FS22_InfoDisplayExtension
+Mod:
+FS25_InfoDisplayExtension
 
+Contact:
+https://github.com/Achimobil/FS25_InfoDisplayExtension
 
 Important:
-No copy and use in own mods allowed.
+This script is part of the FS25_InfoDisplayExtension mod.
 
-Das verändern und wiederöffentlichen, auch in Teilen, ist untersagt und wird abgemahnt.
+Copying this script, using it in other mods or maps, publishing modified versions,
+or reusing parts of this script is not permitted without explicit written permission
+from the author.
+
+Das Kopieren, Verwenden in eigenen Mods oder Maps, Verändern, Wiederveröffentlichen
+oder teilweise Wiederverwenden dieses Skripts ist ohne ausdrückliche schriftliche
+Erlaubnis des Autors nicht gestattet.
 ]]
 
 InfoDisplayExtension = {}
@@ -24,6 +32,7 @@ InfoDisplayExtension.metadata = {
 };
 InfoDisplayExtension.modDir = g_currentModDirectory;
 
+source(InfoDisplayExtension.modDir.."scripts/InfoDisplayKeyValueBoxWidthExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlaceableConstructibleInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
@@ -493,17 +502,17 @@ function PlaceableHusbandryAnimals.setMoreInfos(clusters, isHorse)
                     end
                 end;
             end;
-            if isHorse and cluster.dirt ~= nil and cluster.fitness ~= nil and cluster.riding ~= nil then							
+            if isHorse and cluster.dirt ~= nil and cluster.fitness ~= nil and cluster.riding ~= nil then
                 horseClusters = horseClusters+1;
                 if cluster.dirt > highestDirt then highestDirt = cluster.dirt;end;
                 if (cluster.dirt < lowestDirt) or lowestDirt == 0 then lowestDirt = cluster.dirt;end;
-                dirt = dirt + cluster.dirt;						
+                dirt = dirt + cluster.dirt;
                 if cluster.fitness > highestFitness then highestFitness = cluster.fitness;end;
                 if (cluster.fitness < lowestFitness) or lowestFitness == 0 then lowestFitness = cluster.fitness;end;
                 fitness = fitness + cluster.fitness;
                 if cluster.riding > highestRiding then highestRiding = cluster.riding;end;
                 if (cluster.riding < lowestRiding) or lowestRiding == 0 then lowestRiding = cluster.riding;end;
-                riding = riding + cluster.riding;						
+                riding = riding + cluster.riding;
             end;
         end;
 
