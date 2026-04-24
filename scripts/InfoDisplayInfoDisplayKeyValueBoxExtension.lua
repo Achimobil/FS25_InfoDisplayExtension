@@ -21,11 +21,11 @@ oder teilweise Wiederverwenden dieses Skripts ist ohne ausdrückliche schriftlic
 Erlaubnis des Autors nicht gestattet.
 ]]
 
-InfoDisplayKeyValueBoxWidthExtension = {};
+InfoDisplayInfoDisplayKeyValueBoxExtension = {};
 
 --- Override just to make the fixed programmed width of giant more width
 -- @param function superFunc
-function InfoDisplayKeyValueBoxWidthExtension:storeScaledValues(superFunc)
+function InfoDisplayInfoDisplayKeyValueBoxExtension:storeScaledValues(superFunc)
     superFunc(self);
 
     local infoDisplay = self.infoDisplay;
@@ -39,4 +39,5 @@ function InfoDisplayKeyValueBoxWidthExtension:storeScaledValues(superFunc)
     self.titleMaxWidth = infoDisplay:scalePixelToScreenWidth(432);
 end
 
-InfoDisplayKeyValueBox.storeScaledValues = Utils.overwrittenFunction(InfoDisplayKeyValueBox.storeScaledValues, InfoDisplayKeyValueBoxWidthExtension.storeScaledValues);
+InfoDisplayKeyValueBox.storeScaledValues = Utils.overwrittenFunction(InfoDisplayKeyValueBox.storeScaledValues, InfoDisplayInfoDisplayKeyValueBoxExtension.storeScaledValues);
+

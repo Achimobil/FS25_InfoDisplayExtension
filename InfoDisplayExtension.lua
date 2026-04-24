@@ -32,7 +32,11 @@ InfoDisplayExtension.metadata = {
 };
 InfoDisplayExtension.modDir = g_currentModDirectory;
 
-source(InfoDisplayExtension.modDir.."scripts/InfoDisplayKeyValueBoxWidthExtension.lua");
+-- Info for me: new class extensions use this naming scheme:
+-- InfoDisplay<OriginalClassName>Extension
+
+source(InfoDisplayExtension.modDir.."scripts/InfoDisplayInfoDisplayKeyValueBoxExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/InfoDisplayFillLevelsDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlaceableConstructibleInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
