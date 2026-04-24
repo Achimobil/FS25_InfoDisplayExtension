@@ -21,12 +21,12 @@ oder teilweise Wiederverwenden dieses Skripts ist ohne ausdrückliche schriftlic
 Erlaubnis des Autors nicht gestattet.
 ]]
 
-PlaceableConstructibleInfoDisplayExtension = {};
+InfoDisplayPlaceableConstructibleExtension = {};
 
 ---Update the info table
 -- @param function superFunc the original overwritten function
 -- @param table infoTable the table with the infos to show
-function PlaceableConstructibleInfoDisplayExtension:updateInfo(_, superFunc, infoTable)
+function InfoDisplayPlaceableConstructibleExtension:updateInfo(_, superFunc, infoTable)
     superFunc(self, infoTable);
     local spec = self.spec_constructible;
 
@@ -85,7 +85,7 @@ function PlaceableConstructibleInfoDisplayExtension:updateInfo(_, superFunc, inf
         currentState:updateInfo(infoTable, spec.fillTypeToFillTypeStorageTable)
     end
 end
-PlaceableConstructible.updateInfo = Utils.overwrittenFunction(PlaceableConstructible.updateInfo, PlaceableConstructibleInfoDisplayExtension.updateInfo)
+PlaceableConstructible.updateInfo = Utils.overwrittenFunction(PlaceableConstructible.updateInfo, InfoDisplayPlaceableConstructibleExtension.updateInfo)
 
 ConstructibleStateBuildingInfoDisplayExtension = {};
 

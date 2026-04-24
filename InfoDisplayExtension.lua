@@ -37,7 +37,7 @@ InfoDisplayExtension.modDir = g_currentModDirectory;
 
 source(InfoDisplayExtension.modDir.."scripts/InfoDisplayInfoDisplayKeyValueBoxExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/InfoDisplayFillLevelsDisplayExtension.lua");
-source(InfoDisplayExtension.modDir.."scripts/PlaceableConstructibleInfoDisplayExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/InfoDisplayPlaceableConstructibleExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/PlaceableFactoryInfoDisplayExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
