@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="108">
     <author>Achimobil</author>
-    <version>1.2.2.4</version>
+    <version>1.2.2.5</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -39,6 +39,7 @@ Changelog
 1.2.2.2 - Info Anzeige zu fuß verbreitert
 1.2.2.3 - Infoanzeige im Fahrzeug breiter gemacht und jetzt 10 maximale Einträge statt nur 5
 1.2.2.4 - Infoanzeige im Fahrzeug vergrößert sich jetzt dynamisch wenn mehr gebraucht wird und shrumpft langsam wieder, wenn die breite nicht mehr benötigt wird
+1.2.2.5 - Infoanzeige für Ladung auf max 8 reduziert und mit EV kompatibel gemacht
 
 1.2.2.0
 - Fortschrittsanzeige bei baubaren Objekten eingefügt

@@ -25,7 +25,7 @@ InfoDisplayFillLevelsDisplayExtension = {};
 
 InfoDisplayFillLevelsDisplayExtension.BOX_WIDTH = 300;
 InfoDisplayFillLevelsDisplayExtension.BAR_WIDTH = 247;
-InfoDisplayFillLevelsDisplayExtension.MAX_BOXES = 10;
+InfoDisplayFillLevelsDisplayExtension.MAX_BOXES = 8;
 InfoDisplayFillLevelsDisplayExtension.MIN_BOX_WIDTH = 300;
 InfoDisplayFillLevelsDisplayExtension.MAX_BOX_WIDTH = 520;
 InfoDisplayFillLevelsDisplayExtension.WIDTH_GROW_THRESHOLD = 10;
@@ -56,6 +56,11 @@ function InfoDisplayFillLevelsDisplayExtension:storeScaledValues(superFunc)
     self.bar:setMiddlePart(nil, self.barMaxScaleWidth, nil);
 
     self.helpAnchorPosX = self.bgLeft.x + self:scalePixelToScreenWidth(-15);
+
+    -- enhanced vehicle needs to be refreshed when we refresh the sizes to make sure it do not overlap
+    if g_currentMission ~= nil and g_currentMission.EnhancedVehicle ~= nil and g_currentMission.EnhancedVehicle.ui_hud ~= nil and g_currentMission.EnhancedVehicle.ui_hud.isCalculated ~= nil then
+        g_currentMission.EnhancedVehicle.ui_hud.isCalculated = false;
+    end
 end
 
 FillLevelsDisplay.storeScaledValues = Utils.overwrittenFunction(FillLevelsDisplay.storeScaledValues, InfoDisplayFillLevelsDisplayExtension.storeScaledValues);
