@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <l10n>
-	<translationContributors>mowenxuan</translationContributors>
-	<texts>
-		<text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="容量信息"/>
-		<text name="infoDisplayExtension_USED_CAPACITY" text="已用容量"/>
-		<text name="infoDisplayExtension_TOTAL_CAPACITY" text="总容量"/>
-		<text name="infoDisplayExtension_MORE_ITEMS" text="更多的"/>
-		<text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="已连接至"/>
-		<text name="Revamp_Store" text="储存"/>
-		<text name="Revamp_Spawn" text="生成"/>
-		<text name="infohud_diameter" text="直径"/>
-		<text name="infohud_growthState" text="成长阶段"/>
-		<text name="infohud_ageInHours" text="年龄"/>
-		<text name="infohud_fullGrown" text="成长成熟"/>
-		<text name="infohud_missing" text="缺失"/>
-		<text name="infohud_remaingTime" text="剩余时间"/>
-		<text name="infoDisplayExtension_currentPower" text="功率"/>
-		<text name="infohud_Input" text="输入"/>
-		<text name="infohud_both" text="输入和输出"/>
-		<text name="infohud_Output" text="输出"/>
-		<!-- Animal Texts -->
-		<text name="infoDisplayExtension_animals_health" text="健康值"/>
-		<text name="infoDisplayExtension_animals_healthRange" text="健康值"/>
-		<text name="infoDisplayExtension_animals_duration" text="繁殖时间"/>
-		<text name="infoDisplayExtension_animals_durationRange" text="繁殖时间"/>
-		<text name="infoDisplayExtension_animals_reproduction" text="繁殖率"/>
-		<text name="infoDisplayExtension_animals_reproductionRange" text="繁殖率"/>
-		<text name="infoDisplayExtension_animals_beforeReproduction" text="性别成熟"/>
-		<text name="infoDisplayExtension_animals_beforeReproductionRange" text="性别成熟"/>
-		<text name="infoDisplayExtension_animals_nextBirthIn" text="后代"/>
-		<text name="infoDisplayExtension_animals_dirt" text="清洁度"/>
-		<text name="infoDisplayExtension_animals_dirtRange" text="清洁度"/>
-		<text name="infoDisplayExtension_animals_riding" text="骑术"/>
-		<text name="infoDisplayExtension_animals_ridingRange" text="骑术"/>
-		<text name="infoDisplayExtension_animals_fitness" text="锻炼"/>
-		<text name="infoDisplayExtension_animals_fitnessRange" text="锻炼"/>
-		<text name="infoDisplayExtension_grazingFoodBuffer" text="放牧缓冲区"/>
-		<text name="infoDisplayExtension_category" text="类别"/>
-	</texts>
+    <translationContributors>mowenxuan</translationContributors>
+    <texts>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="容量信息"/>
+        <text name="infoDisplayExtension_USED_CAPACITY" text="已用容量"/>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY" text="总容量"/>
+        <text name="infoDisplayExtension_MORE_ITEMS" text="更多的"/>
+        <text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="已连接至"/>
+        <text name="Revamp_Store" text="储存"/>
+        <text name="Revamp_Spawn" text="生成"/>
+        <text name="infohud_diameter" text="直径"/>
+        <text name="infohud_growthState" text="成长阶段"/>
+        <text name="infohud_ageInHours" text="年龄"/>
+        <text name="infohud_fullGrown" text="成长成熟"/>
+        <text name="infohud_missing" text="缺失"/>
+        <text name="infohud_remaingTime" text="剩余时间"/>
+        <text name="infoDisplayExtension_currentPower" text="功率"/>
+        <text name="infohud_Input" text="输入"/>
+        <text name="infohud_both" text="输入和输出"/>
+        <text name="infohud_Output" text="输出"/>
+        <!-- Animal Texts -->
+        <text name="infoDisplayExtension_animals_health" text="健康值"/>
+        <text name="infoDisplayExtension_animals_healthRange" text="健康值"/>
+        <text name="infoDisplayExtension_animals_duration" text="繁殖时间"/>
+        <text name="infoDisplayExtension_animals_durationRange" text="繁殖时间"/>
+        <text name="infoDisplayExtension_animals_reproduction" text="繁殖率"/>
+        <text name="infoDisplayExtension_animals_reproductionRange" text="繁殖率"/>
+        <text name="infoDisplayExtension_animals_beforeReproduction" text="性别成熟"/>
+        <text name="infoDisplayExtension_animals_beforeReproductionRange" text="性别成熟"/>
+        <text name="infoDisplayExtension_animals_nextBirthIn" text="后代"/>
+        <text name="infoDisplayExtension_animals_dirt" text="清洁度"/>
+        <text name="infoDisplayExtension_animals_dirtRange" text="清洁度"/>
+        <text name="infoDisplayExtension_animals_riding" text="骑术"/>
+        <text name="infoDisplayExtension_animals_ridingRange" text="骑术"/>
+        <text name="infoDisplayExtension_animals_fitness" text="锻炼"/>
+        <text name="infoDisplayExtension_animals_fitnessRange" text="锻炼"/>
+        <text name="infoDisplayExtension_grazingFoodBuffer" text="放牧缓冲区"/>
+        <text name="infoDisplayExtension_category" text="类别"/>
+    </texts>
 </l10n>

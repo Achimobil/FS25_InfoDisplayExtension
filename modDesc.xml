@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
-<modDesc descVersion="108">
+<modDesc descVersion="109">
     <author>Achimobil</author>
-    <version>1.2.2.5</version>
+    <version>1.2.3.0</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -12,7 +12,7 @@
     <description>
         <de><![CDATA[Ein kleiner Mod zur Erweiterung der Anzeigen.
 
-Erweitert die Info Hud Anzeigen von
+Erweitert die Info-HUD-Anzeigen von
 - Silos
 - Produktionen
 - Tierställen
@@ -35,11 +35,13 @@ Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestat
 Fehler und Anregungen gerne auf GitHub: https://github.com/Achimobil/FS25_InfoDisplayExtension
 
 Changelog
-1.2.2.1 - Übersetzungen in HU von Community verbessert
-1.2.2.2 - Info Anzeige zu fuß verbreitert
-1.2.2.3 - Infoanzeige im Fahrzeug breiter gemacht und jetzt 10 maximale Einträge statt nur 5
-1.2.2.4 - Infoanzeige im Fahrzeug vergrößert sich jetzt dynamisch wenn mehr gebraucht wird und shrumpft langsam wieder, wenn die breite nicht mehr benötigt wird
-1.2.2.5 - Infoanzeige für Ladung auf max 8 reduziert und mit EV kompatibel gemacht
+1.2.3.0
+- Infoanzeige zu Fuß verbreitert
+- Infoanzeige im Fahrzeug verbreitert
+- Maximale Anzahl der angezeigten Füllstände im Fahrzeug von 5 auf 8 erhöht
+- Infoanzeige im Fahrzeug vergrößert sich nun dynamisch bei langen Frucht- oder Produktnamen und verkleinert sich später wieder automatisch
+- Kompatibilität mit Enhanced Vehicle verbessert
+- Übersetzungen in HU durch die Community verbessert
 
 1.2.2.0
 - Fortschrittsanzeige bei baubaren Objekten eingefügt
@@ -48,34 +50,17 @@ Changelog
 - Fix für Patch 1.14
 
 1.2.1.0
-- Fix für Früchte wie Gras damit das Wachtum korrekt angezeigt wird
+- Fix für Früchte wie Gras, damit das Wachstum korrekt angezeigt wird
 - Übersetzungen durch Community
-
-1.2.0.1
-- Fix lua error mit Patch 1.9.0.1 bezüglich Arbeitsbreiten
-
-1.2.0.0
-- Weitere Übersetzungen hinzugefügt
-- Debug Ausgabe bei Bäumen deaktiviert
-- Berechnung Baumzeiten korrigiert, waren 24h differenz im Wachstum
-- Fix für Misthaufen entfernt, da im Basegame per Patch behoben (Achtet darauf eine Misthaufen Erweiterung zu nutzen!)
-- Übersetzungen für verschiedene Tasten für einige Sprachen im F1 Menü verkürzt
-- Arbeitsbreitenanzeige geht jetzt auch wieder, wenn über andere Configurationen eingestellt (Fix Patch 1.7)
-- Arbeitsgeschwindigkeit wird nun angezeigt, wenn diese vorhanden ist
-- Fehlerhafte Wachstumsanzeige bei z.B. Trauben behoben
-- Unkraut Status wird nun angezeigt mit Gerät das notwendig ist
-- Unterstützung des Adjust Working Speed Mods. Anzeige der tatsächlichen Arbeitsgeschwindigkeit und in Klammern die Originale
-- Gras Wachstum wird nun in der ersten Stufe angezeigt das noch eine weitere Stufe kommt
-- Giantsfehler der Doppelten Mist anzeige bei Tierställen mit integriertem Misthaufen behoben
 ]]></de>
         <en><![CDATA[A small mod to extend the displays.
 
 Extends the Info Hud displays of
 - silos
 - Productions
-- animal sheeds
+- animal sheds
 - Manure heaps
-- trees (Most information ony in single player available)
+- trees (Most information only available in single player)
 - Vehicles and attachments
 - Field growth
 - Factories and event buildings
@@ -94,6 +79,14 @@ Bugs and suggestions welcome on GitHub: https://github.com/Achimobil/FS25_InfoDi
 
 Changelog
 
+1.2.3.0
+- Increased width of the info display while on foot
+- Increased width of the info display in vehicles
+- Increased maximum number of displayed fill levels in vehicles from 5 to 8
+- Vehicle info display now expands dynamically for long crop or product names and automatically shrinks again when no longer needed
+- Improved compatibility with Enhanced Vehicle
+- Improved HU translations by the community
+
 1.2.2.0
 - Progress bar added for buildable objects
 
@@ -103,23 +96,6 @@ Changelog
 1.2.1.0
 - Fix for fruits such as grass so that growth is displayed correctly
 - Translations by the community
-
-1.2.0.1
-- Fix lua error of Patch 1.9.0.1 with working width
-
-1.2.0.0
-- More translations added
-- Debug output for trees deactivated
-- Corrected calculation of tree times, were 24h difference in growth
-- Fix for manure heap removed, as fixed in the base game by patch (Make sure to use a manure heap extension!)
-- Shortened translations for various keys for some languages in the F1 menu
-- Working width display now works again if set via other configurations (Fix Patch 1.7)
-- Working speed is now displayed if it is available
-- Fixed incorrect growth display for e.g. grapes
-- Weed status is now displayed with device that is necessary
-- Support of the Adjust Working Speed mod. Display of the actual working speed and the original in brackets
-- Grass growth is now displayed in the first stage that another stage is coming
-- Fixed giant error of double manure display for animal barns with integrated manure pile
 ]]></en>
     </description>
 
