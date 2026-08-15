@@ -44,10 +44,10 @@ source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/idePlayerHUDUpdaterExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/ideWearableExtension.lua");
 
---- Print the given Table to the log
--- @param string text parameter Text before the table
--- @param table myTable The table to print
--- @param any|number maxDepth depth of print, default 2
+---Print the given Table to the log
+---@param text string Text before the table
+---@param myTable table The table to print
+---@param maxDepth number|nil depth of print, default 2
 function InfoDisplayExtension.DebugTable(text, myTable, maxDepth)
     if not InfoDisplayExtension.Debug then return end
     if myTable == nil then
@@ -59,18 +59,18 @@ function InfoDisplayExtension.DebugTable(text, myTable, maxDepth)
 end
 
 ---Print the text to the log. Example: InfoDisplayExtension.DebugText("Alter: %s", age)
--- @param string text the text to print formated
--- @param any ... format parameter
+---@param text string the text to print formated
+---@param ... any format parameter
 function InfoDisplayExtension.DebugText(text, ...)
     if not InfoDisplayExtension.Debug then return end
     print("InfoDisplayExtensionDebug: " .. string.format(text, ...));
 end
 
 ---format a volume
--- @param float liters amount to format
--- @param integer precision how many decimals
--- @param string unit which unit should be used, default 2
--- @return string the formated value
+---@param liters number amount to format
+---@param precision integer how many decimals
+---@param unit string|false|nil which unit should be used (false = no unit, nil = default)
+---@return string the formated value
 function InfoDisplayExtension:formatVolume(liters, precision, unit)
     unit = unit ~= "" and (unit == false and "" or unit) or nil
 
@@ -78,18 +78,19 @@ function InfoDisplayExtension:formatVolume(liters, precision, unit)
 end
 
 ---format a volume with capacity
--- @param float liters amount to format
--- @param float capacity capacity to format
--- @param integer precision how many decimals
--- @param string unit which unit should be used
--- @return string the formated value
+---@param liters number amount to format
+---@param capacity number capacity to format
+---@param precision integer how many decimals
+---@param unit string|false|nil which unit should be used
+---@return string the formated value
 function InfoDisplayExtension:formatCapacity(liters, capacity, precision, unit)
     return self:formatVolume(liters, precision, false) .. " / " .. self:formatVolume(capacity, precision, unit);
 end
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableSilo (adds combined silo fill levels)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableSilo(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -107,7 +108,7 @@ function InfoDisplayExtension:updateInfoPlaceableSilo(_, superFunc, infoTable)
             totalCapacity = totalCapacity + sourceStorage.capacity;
 
             if(sourceStorage.capacities ~= nil) then
-                for fillType, fillLevel in pairs(sourceStorage.fillLevels) do
+                for fillType, _ in pairs(sourceStorage.fillLevels) do
                     if(sourceStorage.capacities[fillType] ~= nil) then
                         fillTypesCapacities[fillType] = Utils.getNoNil(fillTypesCapacities[fillType], 0) + sourceStorage.capacities[fillType]
                     end
@@ -151,12 +152,12 @@ function InfoDisplayExtension:updateInfoPlaceableSilo(_, superFunc, infoTable)
             if fillTypeAndLevel.capacity == nil then
                 table.insert(infoTable, {
                     title = fillType.title,
-                    text = InfoDisplayExtension:formatVolume(fillTypeAndLevel.fillLevel, 0, fillType.unitShort, fillType.name)
+                    text = InfoDisplayExtension:formatVolume(fillTypeAndLevel.fillLevel, 0, fillType.unitShort)
                 })
             else
                 table.insert(infoTable, {
                     title = fillType.title,
-                    text = InfoDisplayExtension:formatCapacity(fillTypeAndLevel.fillLevel, fillTypeAndLevel.capacity, 0, fillType.unitShort, fillType.name)
+                    text = InfoDisplayExtension:formatCapacity(fillTypeAndLevel.fillLevel, fillTypeAndLevel.capacity, 0, fillType.unitShort)
                 })
             end
         end
@@ -200,9 +201,9 @@ function InfoDisplayExtension:updateInfoPlaceableSilo(_, superFunc, infoTable)
 end
 PlaceableSilo.updateInfo = Utils.overwrittenFunction(PlaceableSilo.updateInfo, InfoDisplayExtension.updateInfoPlaceableSilo)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for ProductionPoint
+---@param superFunc function the class's own original updateInfo, discarded here since this override reimplements it instead of calling it
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
     local owningFarm = g_farmManager:getFarmById(self:getOwnerFarmId())
 
@@ -220,18 +221,21 @@ function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
 
         for i = 1, #self.activeProductions do
             activeProduction = self.activeProductions[i]
-            local productionName = activeProduction.name or g_fillTypeManager:getFillTypeTitleByIndex(activeProduction.primaryProductFillType)
+            if activeProduction ~= nil then
+                local productionName = activeProduction.name or g_fillTypeManager:getFillTypeTitleByIndex(activeProduction.primaryProductFillType)
 
-            table.insert(infoTable, {
-                title = productionName,
-                text = g_i18n:getText(ProductionPoint.PROD_STATUS_TO_L10N[self:getProductionStatus(activeProduction.id)])
-            })
+                table.insert(infoTable, {
+                    title = productionName,
+                    text = g_i18n:getText(ProductionPoint.PROD_STATUS_TO_L10N[self:getProductionStatus(activeProduction.id)])
+                })
+            end
         end
     else
         table.insert(infoTable, self.infoTables.noActiveProd)
     end
 
-    local fillTypeIndex, fillLevel, fillLevelCapacity = nil
+    ---@type integer, number, number
+    local fillTypeIndex, fillLevel, fillLevelCapacity = nil, nil, nil
     local fillTypesDisplayed = false
 
     --table.insert(infoTable, self.infoTables.storage)
@@ -247,7 +251,7 @@ function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
         local isOutput = false;
         for i = 1, #self.outputFillTypeIdsArray do
             local fillType2 = self.outputFillTypeIdsArray[i]
-            if fillTypeIndex == fillType2 then
+            if fillTypeIndex == fillType2 and fillTypeIndex ~= nil then
                 inputOutputType[fillTypeIndex] = true
                 isOutput = true;
             end
@@ -262,7 +266,7 @@ function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
             if isOutput then
                 table.insert(inputOutputTypeInfo, {
                     title = fillType.title,
-                    text = InfoDisplayExtension:formatCapacity(fillLevel, fillLevelCapacity, 0, fillType.unitShort, fillType.name)
+                    text = InfoDisplayExtension:formatCapacity(fillLevel, fillLevelCapacity, 0, fillType.unitShort)
                 })
             else
                 if not titleAdded then
@@ -274,7 +278,7 @@ function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
                 end
                 table.insert(infoTable, {
                     title = fillType.title,
-                    text = InfoDisplayExtension:formatCapacity(fillLevel, fillLevelCapacity, 0, fillType.unitShort, fillType.name)
+                    text = InfoDisplayExtension:formatCapacity(fillLevel, fillLevelCapacity, 0, fillType.unitShort)
                 })
             end
         end
@@ -314,7 +318,7 @@ function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
 
             table.insert(infoTable, {
                 title = fillType.title,
-                text = InfoDisplayExtension:formatCapacity(fillLevel, fillLevelCapacity, 0, fillType.unitShort, fillType.name)
+                text = InfoDisplayExtension:formatCapacity(fillLevel, fillLevelCapacity, 0, fillType.unitShort)
             })
         end
     end
@@ -330,9 +334,10 @@ function InfoDisplayExtension:updateInfoProductionPoint(superFunc, infoTable)
 end
 ProductionPoint.updateInfo = Utils.overwrittenFunction(ProductionPoint.updateInfo, InfoDisplayExtension.updateInfoProductionPoint)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableHusbandryAnimals (adds health/reproduction/dirt/etc. details)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableHusbandryAnimals(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -584,16 +589,17 @@ function PlaceableHusbandryAnimals.setMoreInfos(clusters, isHorse)
     return moreInfos;
 end;
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableHusbandryFood (adds total food fill level)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableHusbandryFood(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
     if self.animalGrazing ~= nil and self.animalGrazing.outputFillTypes ~= nil then
         local grazingFoodBuffer = 0;
         local hasGrazing = false;
-        for fillTypeName, outputFillType in pairs(self.animalGrazing.outputFillTypes) do
+        for _, outputFillType in pairs(self.animalGrazing.outputFillTypes) do
             grazingFoodBuffer = grazingFoodBuffer + outputFillType.foodBuffer;
             hasGrazing = true;
         end
@@ -618,9 +624,10 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryFood(_, superFunc, inf
 end
 PlaceableHusbandryFood.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryFood.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryFood)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableHusbandryMilk (adds milk fill levels)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableHusbandryMilk(_, superFunc, infoTable)
     local spec = self.spec_husbandryMilk;
 
@@ -631,7 +638,7 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryMilk(_, superFunc, inf
             local fillLevel = self:getHusbandryFillLevel(fillType);
             local capacity = self:getHusbandryCapacity(fillType);
 
-            spec.infos[fillType].text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(fillType));
+            spec.infos[fillType].text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil);
             table.insert(infoTable, spec.infos[fillType])
         end
     end
@@ -640,31 +647,33 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryMilk(_, superFunc, inf
 end
 PlaceableHusbandryMilk.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryMilk.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryMilk)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableHusbandryLiquidManure (adds liquid manure fill level)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableHusbandryLiquidManure(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
     local spec = self.spec_husbandryLiquidManure;
     local fillLevel = self:getHusbandryFillLevel(spec.fillType);
     local capacity = self:getHusbandryCapacity(spec.fillType);
-    spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(spec.fillType));
+    spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil);
 
     table.insert(infoTable, spec.info)
 end
 PlaceableHusbandryLiquidManure.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryLiquidManure.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryLiquidManure)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableHusbandryStraw (adds straw input/output fill levels)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableHusbandryStraw(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
     local spec = self.spec_husbandryStraw;
     local fillLevel = self:getHusbandryFillLevel(spec.inputFillType);
     local capacity = self:getHusbandryCapacity(spec.inputFillType);
-    spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(spec.inputFillType));
+    spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil);
 
     table.insert(infoTable, spec.info)
 
@@ -681,9 +690,10 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryStraw(_, superFunc, in
 end
 PlaceableHusbandryStraw.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryStraw.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryStraw)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableHusbandryWater (adds water fill level, unless automatic supply)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableHusbandryWater(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -692,16 +702,17 @@ function InfoDisplayExtension:updateInfoPlaceableHusbandryWater(_, superFunc, in
     if not spec.automaticWaterSupply then
         local fillLevel = self:getHusbandryFillLevel(spec.fillType);
         local capacity = self:getHusbandryCapacity(spec.fillType);
-        spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(spec.fillType));
+        spec.info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil);
 
         table.insert(infoTable, spec.info)
     end
 end
 PlaceableHusbandryWater.updateInfo = Utils.overwrittenFunction(PlaceableHusbandryWater.updateInfo, InfoDisplayExtension.updateInfoPlaceableHusbandryWater)
 
----Update the info table
--- @param function superFunc
--- @param table infoTable
+---Update the info table for PlaceableManureHeap (adds manure heap fill level and connected unloading stations)
+---@param _ function the class's own original updateInfo, discarded here since this override reimplements it instead of chaining to it
+---@param superFunc function continues the specialization chain, must be called to keep other specializations' info entries
+---@param infoTable table info-table to append entries to
 function InfoDisplayExtension:updateInfoPlaceableManureHeap(_, superFunc, infoTable)
     superFunc(self, infoTable)
 
@@ -718,7 +729,7 @@ function InfoDisplayExtension:updateInfoPlaceableManureHeap(_, superFunc, infoTa
 
     local fillLevel = spec.manureHeap:getFillLevel(spec.manureHeap.fillTypeIndex);
     local capacity = spec.manureHeap:getCapacity(spec.manureHeap.fillTypeIndex);
-    spec.infoFillLevel.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, g_fillTypeManager:getFillTypeNameByIndex(spec.manureHeap.fillTypeIndex));
+    spec.infoFillLevel.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil);
 
     table.insert(infoTable, spec.infoFillLevel)
 
@@ -729,7 +740,7 @@ function InfoDisplayExtension:updateInfoPlaceableManureHeap(_, superFunc, infoTa
         }
     )
 
-    for j, unloadingStation in pairs (spec.manureHeap.unloadingStations) do
+    for _, unloadingStation in pairs (spec.manureHeap.unloadingStations) do
         table.insert(infoTable, {
             title = "",
             text = unloadingStation:getName()
@@ -743,20 +754,20 @@ function InfoDisplayExtension:updateInfoFeedingRobot(_, infoTable)
         for _, info in ipairs(self.infos) do
             local fillLevel = 0
             local capacity = 0
-            local fillTypeName = "UNKNOWN"
+            local seenSpots = {}
 
+            -- pro physischem Abladeplatz nur einmal zählen, da mehrere Fülltypen im Rezept
+            -- auf denselben Spot zeigen können (sonst wird der Füllstand doppelt gezählt)
             for _, fillType in ipairs(info.fillTypes) do
-                fillTypeName = g_fillTypeManager:getFillTypeNameByIndex(fillType)
+                local spot = self.fillTypeToUnloadingSpot[fillType]
+                if spot ~= nil and not seenSpots[spot] then
+                    seenSpots[spot] = true
+                    fillLevel = fillLevel + spot.fillLevel
+                    capacity = capacity + spot.capacity
+                end
             end
 
-            -- nur den ersten filltype abfragen, da die anderen da schon drin sind
-            fillLevel = self:getFillLevel(info.fillTypes[1]);
-            local spot = self.fillTypeToUnloadingSpot[info.fillTypes[1]]
-            if spot ~= nil then
-                capacity = spot.capacity;
-            end
-
-            info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0, nil, fillTypeName);
+            info.text = InfoDisplayExtension:formatCapacity(fillLevel, capacity, 0);
 
             table.insert(infoTable, info)
         end
@@ -764,9 +775,9 @@ function InfoDisplayExtension:updateInfoFeedingRobot(_, infoTable)
 end
 FeedingRobot.updateInfo = Utils.overwrittenFunction(FeedingRobot.updateInfo, InfoDisplayExtension.updateInfoFeedingRobot)
 
----Update the info table
--- @param function superFunc
--- @param entityId splitShape
+---Show the split-type info for a mesh split shape node
+---@param superFunc function the class's own original showSplitShapeInfo, discarded here since this override reimplements it instead of calling it
+---@param splitShape integer entity id of the split shape node
 function InfoDisplayExtension:PlayerHUDUpdaterShowSplitShapeInfo(superFunc, splitShape)
     if not entityExists(splitShape) or not getHasClassId(splitShape, ClassIds.MESH_SPLIT_SHAPE) then
         return;
@@ -824,12 +835,12 @@ function InfoDisplayExtension:PlayerHUDUpdaterShowSplitShapeInfo(superFunc, spli
         local splitShapeGrandParent = getParent(splitShapeParent);
 
         -- suchen der Infos in den treesData.growingTrees
-        for id, tree in pairs(g_treePlantManager.treesData.growingTrees) do
+        for _, tree in pairs(g_treePlantManager.treesData.growingTrees) do
             if tree.node == splitShape or tree.node == splitShapeParent or tree.node == splitShapeGrandParent then
                 foundTree = tree;
             end
         end
-        for id, tree in pairs(g_treePlantManager.treesData.splitTrees) do
+        for _, tree in pairs(g_treePlantManager.treesData.splitTrees) do
             if tree.node == splitShape or tree.node == splitShapeParent or tree.node == splitShapeGrandParent then
                 foundTree = tree;
             end
@@ -873,7 +884,7 @@ end
 PlayerHUDUpdater.showSplitShapeInfo = Utils.overwrittenFunction(PlayerHUDUpdater.showSplitShapeInfo, InfoDisplayExtension.PlayerHUDUpdaterShowSplitShapeInfo)
 
 ---append to Vehicle showInfo to add more information
--- @param table box
+---@param box table the info-box to append lines to
 function InfoDisplayExtension:showInfoVehicle(box)
     if self.ideHasPower == nil and self.isDeleted == false then
 
@@ -1014,7 +1025,7 @@ function InfoDisplayExtension:onStartMission()
 end
 
 ---Simple check if this is server and not client
--- @return boolean isDediServer
+---@return boolean isDediServer
 function InfoDisplayExtension:getDetiServer()
     return g_server ~= nil and g_client ~= nil and g_dedicatedServer ~= nil;
 end;

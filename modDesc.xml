@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no" ?>
 <modDesc descVersion="109">
     <author>Achimobil</author>
-    <version>1.2.3.0</version>
+    <version>1.2.3.1</version>
     <title>
         <de>Info Display Erweiterung</de>
         <en>Info Display Extension</en>
@@ -35,6 +35,8 @@ Das Verändern oder erneutes Hochladen, ob ganz oder in Teilen, ist nicht gestat
 Fehler und Anregungen gerne auf GitHub: https://github.com/Achimobil/FS25_InfoDisplayExtension
 
 Changelog
+1.2.3.1 - Anzeige am Fütterungsroboter korrigiert: Falsche oder doppelt gezählte Füllstände (z. B. bei Silage, Heu oder Mineralfutter) werden jetzt richtig angezeigt
+
 1.2.3.0
 - Infoanzeige zu Fuß verbreitert
 - Infoanzeige im Fahrzeug verbreitert

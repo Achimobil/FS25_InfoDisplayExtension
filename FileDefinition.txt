@@ -9,3 +9,6 @@ SourceModels
 *.gsp
 *.gspu
 *.zip
+*.code-workspace
+.vscode
+.claude
