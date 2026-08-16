@@ -43,6 +43,7 @@ source(InfoDisplayExtension.modDir.."scripts/HarvestMissionExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/KeyboardHelperExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/idePlayerHUDUpdaterExtension.lua");
 source(InfoDisplayExtension.modDir.."scripts/ideWearableExtension.lua");
+source(InfoDisplayExtension.modDir.."scripts/InfoDisplayInputHelpDisplayExtension.lua");
 
 ---Print the given Table to the log
 ---@param text string Text before the table
