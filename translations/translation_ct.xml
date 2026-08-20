@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<l10n>
+    <translationContributors>Achimobil</translationContributors>
+    <texts>
+        <text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="容量資訊" />
+        <text name="infoDisplayExtension_USED_CAPACITY" text="已佔用容量" />
+        <text name="infoDisplayExtension_TOTAL_CAPACITY" text="總容量" />
+        <text name="infoDisplayExtension_MORE_ITEMS" text="更多" />
+        <text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="連接至" />
+        <text name="Revamp_Store" text="儲存" />
+        <text name="Revamp_Spawn" text="生成" />
+        <text name="infohud_diameter" text="直徑" />
+        <text name="infohud_growthState" text="生長階段" />
+        <text name="infohud_ageInHours" text="齡期" />
+        <text name="infohud_fullGrown" text="完全成熟" />
+        <text name="infohud_missing" text="缺失" />
+        <text name="infohud_remaingTime" text="剩餘時間" />
+        <text name="infoDisplayExtension_currentPower" text="功率" />
+        <text name="infohud_Input" text="輸入" />
+        <text name="infohud_both" text="輸入與輸出" />
+        <text name="infohud_Output" text="輸出" />
+        <!-- 動物相關文本 -->
+        <text name="infoDisplayExtension_animals_health" text="生命值" />
+        <text name="infoDisplayExtension_animals_healthRange" text="生命值範圍" />
+        <text name="infoDisplayExtension_animals_duration" text="孕育時長" />
+        <text name="infoDisplayExtension_animals_durationRange" text="孕育時長範圍" />
+        <text name="infoDisplayExtension_animals_reproduction" text="繁殖冷卻" />
+        <text name="infoDisplayExtension_animals_reproductionRange" text="繁殖冷卻範圍" />
+        <text name="infoDisplayExtension_animals_beforeReproduction" text="幼年成長期" />
+        <text name="infoDisplayExtension_animals_beforeReproductionRange" text="幼年成長期範圍" />
+        <text name="infoDisplayExtension_animals_nextBirthIn" text="下次產崽剩餘時間" />
+        <text name="infoDisplayExtension_animals_dirt" text="潔淨度" />
+        <text name="infoDisplayExtension_animals_dirtRange" text="潔淨度範圍" />
+        <text name="infoDisplayExtension_animals_riding" text="騎乘值" />
+        <text name="infoDisplayExtension_animals_ridingRange" text="騎乘值範圍" />
+        <text name="infoDisplayExtension_animals_fitness" text="體能值" />
+        <text name="infoDisplayExtension_animals_fitnessRange" text="體能值範圍" />
+        <text name="infoDisplayExtension_grazingFoodBuffer" text="放牧儲備食料" />
+        <text name="infoDisplayExtension_category" text="分類" />
+        <!-- 按鍵提示 -->
+        <text name="infoDisplayExtension_KEY_lshift" text="左Shift" />
+        <text name="infoDisplayExtension_KEY_rshift" text="右Shift" />
+        <text name="infoDisplayExtension_KEY_lctrl" text="左Ctrl" />
+        <text name="infoDisplayExtension_KEY_rctrl" text="右Ctrl" />
+        <text name="infoDisplayExtension_KEY_lalt" text="左Alt" />
+        <text name="infoDisplayExtension_KEY_ralt" text="右Alt" />
+    </texts>
+</l10n>

@@ -3,39 +3,46 @@
     <translationContributors>mowenxuan</translationContributors>
     <texts>
         <text name="infoDisplayExtension_TOTAL_CAPACITY_TITLE" text="容量信息"/>
-        <text name="infoDisplayExtension_USED_CAPACITY" text="已用容量"/>
+        <text name="infoDisplayExtension_USED_CAPACITY" text="已占用容量"/>
         <text name="infoDisplayExtension_TOTAL_CAPACITY" text="总容量"/>
-        <text name="infoDisplayExtension_MORE_ITEMS" text="更多的"/>
-        <text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="已连接至"/>
-        <text name="Revamp_Store" text="储存"/>
+        <text name="infoDisplayExtension_MORE_ITEMS" text="更多"/>
+        <text name="infoDisplayExtension_MANURE_HEAP_CONNECTED" text="连接至"/>
+        <text name="Revamp_Store" text="存储"/>
         <text name="Revamp_Spawn" text="生成"/>
         <text name="infohud_diameter" text="直径"/>
-        <text name="infohud_growthState" text="成长阶段"/>
-        <text name="infohud_ageInHours" text="年龄"/>
-        <text name="infohud_fullGrown" text="成长成熟"/>
+        <text name="infohud_growthState" text="生长阶段"/>
+        <text name="infohud_ageInHours" text="龄期"/>
+        <text name="infohud_fullGrown" text="完全成熟"/>
         <text name="infohud_missing" text="缺失"/>
         <text name="infohud_remaingTime" text="剩余时间"/>
         <text name="infoDisplayExtension_currentPower" text="功率"/>
         <text name="infohud_Input" text="输入"/>
-        <text name="infohud_both" text="输入和输出"/>
+        <text name="infohud_both" text="输入与输出"/>
         <text name="infohud_Output" text="输出"/>
-        <!-- Animal Texts -->
-        <text name="infoDisplayExtension_animals_health" text="健康值"/>
-        <text name="infoDisplayExtension_animals_healthRange" text="健康值"/>
-        <text name="infoDisplayExtension_animals_duration" text="繁殖时间"/>
-        <text name="infoDisplayExtension_animals_durationRange" text="繁殖时间"/>
-        <text name="infoDisplayExtension_animals_reproduction" text="繁殖率"/>
-        <text name="infoDisplayExtension_animals_reproductionRange" text="繁殖率"/>
-        <text name="infoDisplayExtension_animals_beforeReproduction" text="性别成熟"/>
-        <text name="infoDisplayExtension_animals_beforeReproductionRange" text="性别成熟"/>
-        <text name="infoDisplayExtension_animals_nextBirthIn" text="后代"/>
-        <text name="infoDisplayExtension_animals_dirt" text="清洁度"/>
-        <text name="infoDisplayExtension_animals_dirtRange" text="清洁度"/>
-        <text name="infoDisplayExtension_animals_riding" text="骑术"/>
-        <text name="infoDisplayExtension_animals_ridingRange" text="骑术"/>
-        <text name="infoDisplayExtension_animals_fitness" text="锻炼"/>
-        <text name="infoDisplayExtension_animals_fitnessRange" text="锻炼"/>
-        <text name="infoDisplayExtension_grazingFoodBuffer" text="放牧缓冲区"/>
-        <text name="infoDisplayExtension_category" text="类别"/>
+        <!-- 动物相关文本 Animal Texts -->
+        <text name="infoDisplayExtension_animals_health" text="生命值"/>
+        <text name="infoDisplayExtension_animals_healthRange" text="生命值范围"/>
+        <text name="infoDisplayExtension_animals_duration" text="孕育时长"/>
+        <text name="infoDisplayExtension_animals_durationRange" text="孕育时长范围"/>
+        <text name="infoDisplayExtension_animals_reproduction" text="繁殖冷却"/>
+        <text name="infoDisplayExtension_animals_reproductionRange" text="繁殖冷却范围"/>
+        <text name="infoDisplayExtension_animals_beforeReproduction" text="幼年成长期"/>
+        <text name="infoDisplayExtension_animals_beforeReproductionRange" text="幼年成长期范围"/>
+        <text name="infoDisplayExtension_animals_nextBirthIn" text="下次产崽剩余时间"/>
+        <text name="infoDisplayExtension_animals_dirt" text="洁净度"/>
+        <text name="infoDisplayExtension_animals_dirtRange" text="洁净度范围"/>
+        <text name="infoDisplayExtension_animals_riding" text="骑乘值"/>
+        <text name="infoDisplayExtension_animals_ridingRange" text="骑乘值范围"/>
+        <text name="infoDisplayExtension_animals_fitness" text="体能值"/>
+        <text name="infoDisplayExtension_animals_fitnessRange" text="体能值范围"/>
+        <text name="infoDisplayExtension_grazingFoodBuffer" text="放牧储备食料"/>
+        <text name="infoDisplayExtension_category" text="分类"/>
+        <!-- 按键提示 Key replacments -->
+        <text name="infoDisplayExtension_KEY_lshift" text="左Shift"/>
+        <text name="infoDisplayExtension_KEY_rshift" text="右Shift"/>
+        <text name="infoDisplayExtension_KEY_lctrl" text="左Ctrl"/>
+        <text name="infoDisplayExtension_KEY_rctrl" text="右Ctrl"/>
+        <text name="infoDisplayExtension_KEY_lalt" text="左Alt"/>
+        <text name="infoDisplayExtension_KEY_ralt" text="右Alt"/>
     </texts>
 </l10n>
